@@ -28,7 +28,6 @@
     [self setupNav];
     [self setupUserInfo];
     
-    
 }
 
 
