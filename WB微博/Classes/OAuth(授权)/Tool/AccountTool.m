@@ -21,7 +21,6 @@
 
 +(Account *)account//检查授权是否过期
 {
-    NSLog(@"1111");
     Account *account = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"accont.archive"]];
     
     //验证是否过期

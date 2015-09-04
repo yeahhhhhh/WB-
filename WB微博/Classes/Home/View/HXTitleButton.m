@@ -39,7 +39,7 @@
     self.titleLabel.x = self.imageView.x;
     
     // 2.计算imageView的frame
-    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
+    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + 5;
 }
 - (void)setTitle:(NSString *)title forState:(UIControlState)state
 {

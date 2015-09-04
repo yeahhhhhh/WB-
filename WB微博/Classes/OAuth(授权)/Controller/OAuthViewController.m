@@ -70,7 +70,7 @@
         //截取url里的code值
         long  index = range.location + range.length;
         NSString *code = [url substringFromIndex:index];//code是授权成功的标记
-        NSLog(@"%@,%@",code,url) ;
+//        NSLog(@"%@,%@",code,url) ;
         [self accessTokenwithCode:code];
         
         //禁止加载回调地址
