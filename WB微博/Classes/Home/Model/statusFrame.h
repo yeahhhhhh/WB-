@@ -7,12 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import "statusModle(微博模型).h"
 //  一个StatusFrame模型里面包含的信息
 //  1.存放着一个cell内部所有子控件的frame数据
 //  2.存放一个cell的高度
-//  3.存放着一个数据模型statusModle______ 
+//  3.存放着一个数据模型statusModle______
+
+#define StatusCellBorderW 10
+//昵称字体
+#define StatusCellNameFont [UIFont systemFontOfSize:15]
+
+//时间字体
+#define StatusCellTimeFont [UIFont systemFontOfSize:12]
+
+//内容字体
+#define StatusCellContentFont [UIFont systemFontOfSize:15]
+
 @interface statusFrame : NSObject
 
 @property (nonatomic, strong) statusModle______ *status;
@@ -33,5 +45,5 @@
 //内容
 @property (nonatomic, assign) CGRect  contentLableF;
 
-@property (nonatomic, assign) float  cellhightF;
+@property (nonatomic, assign) CGFloat  cellhightF;
 @end

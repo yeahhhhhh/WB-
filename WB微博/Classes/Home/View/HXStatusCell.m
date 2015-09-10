@@ -10,12 +10,15 @@
 #import "statusFrame.h"
 #import "UIImageView+WebCache.h"
 #import "userModle.h"
+#import "statusModle(微博模型).h"
+#import "statusFrame.h"
 #define HWStatusCellBorderW 10
+
 @interface HXStatusCell()
 //原创微博
 @property (nonatomic, weak) UIView* originaView;
 //头像
-@property (nonatomic, weak) UIImageView* iconImage;
+@property (nonatomic, weak) UIImageView* iconImage; 
 //会员图标
 @property (nonatomic, weak) UIImageView* vipView;
 //配图
@@ -54,6 +57,7 @@
     if (self) {
         
         UIView* originaView = [[UIView alloc]init];
+        
         [self.contentView addSubview:originaView];
         self.originaView = originaView;
         //头像
@@ -62,6 +66,7 @@
         self.iconImage = iconImage;
         //会员图标
         UIImageView* vipView = [[UIImageView alloc]init];
+        vipView.contentMode = UIViewContentModeCenter;
         [self.originaView addSubview:vipView];
         self.vipView = vipView;
         //配图
@@ -71,19 +76,26 @@
         //昵称
         UILabel* nameLable = [[UILabel alloc]init];
         [self.originaView addSubview:nameLable];
+        nameLable.font = HWStatusCellNameFont;
         self.nameLable = nameLable;
         //时间
         UILabel* timeLable = [[UILabel alloc]init];
         [self.originaView addSubview:timeLable];
         self.timeLable = timeLable;
+        timeLable.font = HWStatusCellTimeFont;
         //来源
         UILabel* sourceLable = [[UILabel alloc]init];
         [self.originaView addSubview:sourceLable];
         self.sourceLable = sourceLable;
+        sourceLable.font = HWStatusCellSourceFont;
+        
         //内容
         UILabel* contentLable = [[UILabel alloc]init];
+        contentLable.numberOfLines = 0;
         [self.originaView addSubview:contentLable];
         self.contentLable = contentLable;
+        contentLable.font = HWStatusCellContentFont;
+        
     }
     return self;
 }
@@ -96,38 +108,50 @@
     userModle *user = status.user;
     
     self.originaView.frame = statusFrame.originaViewF;
-    
     //头像
     self.iconImage.frame = statusFrame.iconImageF;
     [self.iconImage sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
-    NSLog(@"%@",user.profile_image_url);
+//    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]];
+    
     
     //会员图标
-    self.vipView.frame = statusFrame.vipViewF;
-    self.vipView.image = [UIImage imageNamed:@"common_icon_membership_level1"];
-    
+    if (user.isVip) {
+        self.vipView.hidden = NO;
+        self.vipView.frame = statusFrame.vipViewF;
+        NSString *vipNmae = [NSString stringWithFormat:@"common_icon_membership_level%d",user.mbrank];
+        self.vipView.image = [UIImage imageNamed:vipNmae];
+    }
+    else
+    {
+        self.vipView.hidden = YES;
+    }
     //配图
+    
     self.photoView.frame = statusFrame.photoViewF;
     self.photoView.backgroundColor = [UIColor orangeColor];
     //昵称
 
     self.nameLable.frame = statusFrame.nameLableF;
     self.nameLable.text = user.name;
-    self.nameLable.font = HWStatusCellNameFont;
     
+
 
     //时间
 
     self.timeLable.frame = statusFrame.timeLableF;
+    self.timeLable.text = status.created_at;
     
     //来源
 
     self.sourceLable.frame = statusFrame.sourceLableF;
+    self.sourceLable.text = status.source;
     
     //内容
 
     self.contentLable.frame = statusFrame.contentLableF;
     self.contentLable.text = status.text;
+
+    
 }
 
 

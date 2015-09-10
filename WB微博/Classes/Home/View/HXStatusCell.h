@@ -14,7 +14,8 @@
 // 来源字体
 #define HWStatusCellSourceFont HWStatusCellTimeFont
 // 正文字体
-#define HWStatusCellContentFont [UIFont systemFontOfSize:14]
+#define HWStatusCellContentFont [UIFont systemFontOfSize:15]
+
 @class statusFrame;
 @interface HXStatusCell : UITableViewCell
 + (instancetype)cellwithTableView:(UITableView *)tableview;

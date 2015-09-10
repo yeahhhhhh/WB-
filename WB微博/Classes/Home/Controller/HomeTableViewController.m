@@ -23,7 +23,7 @@
 #import "HXStatusCell.h"
 #import "statusFrame.h"
 @interface HomeTableViewController ()<HXDropdownMenuDelegate>
-@property (nonatomic, strong) NSMutableArray* statuses;//(微博模型) 里面存放的statusFrame(微博模型) 每一个statusFrame(微博模型)代表一个微博
+@property (nonatomic, strong) NSMutableArray* statusFrames;//(微博模型) 里面存放的statusFrame(微博模型) 每一个statusFrame(微博模型)代表一个微博
 @end
 @implementation HomeTableViewController
 - (void)viewDidLoad {
@@ -33,7 +33,7 @@
     //获取用户信息
     [self setupUserInfo];
     
-    //[self loadNewSttus];
+    [self loadNewSttus];
     
     //集成下拉刷新控件
     [self setDownRefresh];
@@ -67,6 +67,7 @@
 - (void)setupRefresh
 {
     LodeMoreFooter______ *footer = [LodeMoreFooter______ footer];
+    footer.hidden = YES;
     self.tableView.tableFooterView = footer;
 }
 /**
@@ -96,6 +97,7 @@
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
+         NSLog(@"获得微博未读数");
          NSLog(@"请求失败-%@", error);
      }];
     
@@ -117,9 +119,9 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = account.access_token;
     //取出最前面的微博 （最新的微博ID最大的微博）
-    statusModle______ *firetStatus = [self.statuses firstObject];
-    if (firetStatus) {
-        params[@"since_id"] = firetStatus.idstr;
+    statusFrame *firetStatusF = [self.statusFrames firstObject];
+    if (firetStatusF) {
+        params[@"since_id"] = firetStatusF.status.idstr;
     }
     
     //    params[@"count"] = @1;
@@ -128,21 +130,18 @@
      {
          NSArray *array = [statusModle______ objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
          
-//         NSMutableArray *newFreams = [NSMutableArray array];
-//         for (statusModle______ * status in array) {
-//             statusFrame *f = [[statusFrame alloc]init];
-//             f.status = status;
-//             [newFreams addObject:f];
-//         }
+         // 将 HWStatus数组 转为 HWStatusFrame数组
+         NSArray *newFrames = [self stausFramesWithStatuses:array];
          
          
-         NSRange range = NSMakeRange(0, array.count);
+         
+         NSRange range = NSMakeRange(0, newFrames.count);
          NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
          
-         [self.statuses insertObjects:array atIndexes:set];//插到最前面
+         [self.statusFrames insertObjects:newFrames atIndexes:set];//插到最前面
          [self.tableView reloadData];//刷新表格
          [control endRefreshing];
-         NSLog(@"请求成功-%@", responseObject);
+         //NSLog(@"请求成功-%@", responseObject);
          
          //显示微博刷新数量
          [self showNewStatusCount:array.count];
@@ -153,19 +152,30 @@
     
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
+         NSLog(@"进入刷新状态");
          NSLog(@"请求失败-%@", error);
+         
          [control endRefreshing];
      }];
     
 }
-
-- (NSMutableArray *)statuses
+- (NSArray *)stausFramesWithStatuses:(NSArray *)statuses
 {
-    if (!_statuses)
-    {
-        self.statuses = [[NSMutableArray alloc]init];
+    NSMutableArray *frames = [NSMutableArray array];
+    for (statusModle______ *status in statuses) {
+        statusFrame *f = [[statusFrame alloc] init];
+        f.status = status;
+        [frames addObject:f];
     }
-    return _statuses;
+    return frames;
+}
+- (NSMutableArray *)statusFrames
+{
+    if (!_statusFrames)
+    {
+        self.statusFrames = [[NSMutableArray alloc]init];
+    }
+    return _statusFrames;
 }
 /**
  *  获取用户信息
@@ -303,13 +313,9 @@
          
          NSArray *array = [statusModle______ objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
          //
-//         NSMutableArray *newFreams = [NSMutableArray array];
-//         for (statusModle______ * status in array) {
-//             statusFrame *f = [[statusFrame alloc]init];
-//             f.status = status;
-//             [newFreams addObject:f];
-//         }
-         [self.statuses addObjectsFromArray:array];
+         
+         NSArray *newFreams = [self stausFramesWithStatuses:array];
+         [self.statusFrames addObjectsFromArray:newFreams];
          [self.tableView reloadData];//刷新表格
          //NSLog(@"请求成功-%@", _statuses);
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
@@ -358,6 +364,54 @@
         }];
     }];
 }
+/**
+ *  加载更多的微博数据
+ */
+- (void)loadMoreStatus
+{
+    // 1.请求管理者
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    // 2.拼接请求参数
+    Account *account = [AccountTool account];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    
+    // 取出最后面的微博（最新的微博，ID最大的微博）
+    statusFrame *lastStatusF = [self.statusFrames lastObject];
+    if (lastStatusF) {
+        // 若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
+        // id这种数据一般都是比较大的，一般转成整数的话，最好是long long类型
+        long long maxId = lastStatusF.status.idstr.longLongValue - 1;
+        params[@"max_id"] = @(maxId);
+    }
+    
+    // 3.发送请求
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        NSLog(@"%@",responseObject);
+        // 将 "微博字典"数组 转为 "微博模型"数组
+        NSArray *newStatuses = [statusModle______ objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        // 将 HWStatus数组 转为 HWStatusFrame数组
+        NSArray *newFrames = [self stausFramesWithStatuses:newStatuses];
+        
+        // 将更多的微博数据，添加到总数组的最后面
+        [self.statusFrames addObjectsFromArray:newFrames];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 结束刷新(隐藏footer)
+        self.tableView.tableFooterView.hidden = YES;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"加载更多的微博数据");
+        NSLog(@"请求失败-%@", error);
+        
+        
+        // 结束刷新
+        self.tableView.tableFooterView.hidden = YES;
+    }];
+}
 - (void)friendsearch
 {
     NSLog(@"friendsearch");
@@ -378,30 +432,27 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {//行
 #warning Incomplete method implementation.
     //NSLog(@"%lu",(unsigned long)self.statuses.count);
-    return self.statuses.count;
+    return self.statusFrames.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //获得cell
-//    HXStatusCell *cell = [HXStatusCell cellwithTableView:tableView];
-//    cell.statusFrame = self.statusFrame[indexPath.row];
-    static NSString *ID = @"status";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-      statusModle______ *status = self.statuses[indexPath.row];
-      cell.textLabel.text = status.user.name;
-      cell.detailTextLabel.text = status.text;
-    
-    
-    
-      //设置头像
-        NSString *imageurl = status.user.profile_image_url;
-        UIImage *placeholder = [UIImage imageNamed:@"avatar_default_small"];
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:placeholder];
-    
+    HXStatusCell *cell = [HXStatusCell cellwithTableView:tableView];
+    cell.statusFrame = self.statusFrames[indexPath.row];
+
+         
     return cell;
+//    statusModle______ *status = self.statuses[indexPath.row];
+//    cell.textLabel.text = status.user.name;
+//    cell.detailTextLabel.text = status.text;
+//    
+//    
+//    
+//    //设置头像
+//    NSString *imageurl = status.user.profile_image_url;
+//    UIImage *placeholder = [UIImage imageNamed:@"avatar_default_small"];
+//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:placeholder];
+//    
     
     //cell.textLabel.text = [NSString stringWithFormat:@"第%ld行",(long)indexPath.row];
     
@@ -416,11 +467,11 @@
     
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    statusFrame *frame = self.statusFrame[indexPath.row];
-//    return frame.cellhightF;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    statusFrame *frame = self.statusFrames[indexPath.row];
+    return frame.cellhightF;
+}
 
 
 
@@ -433,6 +484,37 @@
 
 
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offsetY = scrollView.contentOffset.y;
+    // 如果tableView还没有数据，就直接返回
+    if (self.statusFrames.count == 0) return;
+    //    if ([self.tableView numberOfRowsInSection:0] == 0) return;
+    
+    // 当最后一个cell完全显示在眼前时，contentOffset的y值
+    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
+    if (offsetY >= judgeOffsetY) { // 最后一个cell完全进入视野范围内
+        // 显示footer
+        self.tableView.tableFooterView.hidden = NO;
+        [self loadMoreStatus];
+        NSLog(@"加载更多的微博数据");
+
+    }
+    
+    /*
+     contentInset：除具体内容以外的边框尺寸
+     contentSize: 里面的具体内容（header、cell、footer），除掉contentInset以外的尺寸
+     contentOffset:
+     1.它可以用来判断scrollView滚动到什么位置
+     2.指scrollView的内容超出了scrollView顶部的距离（除掉contentInset以外的尺寸）
+     */
+}
+
+/**
+ 1.将字典转为模型
+ 2.能够下拉刷新最新的微博数据
+ 3.能够上拉加载更多的微博数据
+ */
 
 
 

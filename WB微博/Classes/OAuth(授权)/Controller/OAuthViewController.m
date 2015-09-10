@@ -137,6 +137,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
     {
+        NSLog(@"accessTokenwithCode");
         NSLog(@"请求失败-%@", error);
         [MBProgressHUD hideHUD];
     }];
