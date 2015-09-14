@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "statusPhotoModle.h"
+
 // 昵称字体
 #define HWStatusCellNameFont [UIFont systemFontOfSize:15]
 // 时间字体

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MJExtension.h"
+#import "statusPhotoModle.h"
 @class userModle;
 @interface statusModle______ : NSObject
 
@@ -25,6 +27,6 @@
 /**微博作者的用户信息字段*/
 @property (nonatomic, strong) userModle* user;
 
-
-
+/**微博图片内容*/
+@property (nonatomic, strong) NSArray *pic_urls;
 @end

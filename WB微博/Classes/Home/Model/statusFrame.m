@@ -15,7 +15,7 @@
     _status = status;
      userModle *user = status.user;
     //头像
-    CGFloat iconWH = 50;
+    CGFloat iconWH = 35;
     CGFloat iconX = StatusCellBorderW;
     CGFloat iconY = StatusCellBorderW;
     self.iconImageF = CGRectMake(iconX, iconY, iconWH, iconWH);
@@ -33,9 +33,6 @@
         CGFloat VipH = nameSize.height;
         self.vipViewF = CGRectMake(VipX, VipY, VipW, VipH);
     }
-    
-    //配图
-    //self.photoViewF = CGRectMake(90, StatusCellBorderW, 20, 20);
     
     //时间
     CGFloat timeX = nameX;
@@ -57,15 +54,30 @@
     CGSize  contentSize = [self sizeWithText:status.text font:StatusCellContentFont maxW:maxW];
     self.contentLableF =  (CGRect){{contentX,contentY},contentSize};//CGRectMake(contentX, contentY, contentSize.width, sourceSize.height);
     
+    //配图
+    CGFloat originaViewH;
+        if (status.pic_urls.count ) {//有配图
+            CGFloat photoWH = 60;
+            CGFloat photoX = StatusCellBorderW;
+            CGFloat photoY = CGRectGetMaxY(self.contentLableF) + StatusCellBorderW ;
+            self.photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+    
+             originaViewH = StatusCellBorderW + CGRectGetMaxY(self.photoViewF);
+            
+        }else{//无配图
+    
+             originaViewH = StatusCellBorderW + CGRectGetMaxY(self.contentLableF);
+        }
+    
     //原创微博整体
     CGFloat originaViewX = 0;
     CGFloat originaViewY = 0;
     CGFloat originaViewW = [UIScreen mainScreen].bounds.size.width;
-    CGFloat originaViewH = StatusCellBorderW + CGRectGetMaxY(self.contentLableF);
+//    originaViewH = StatusCellBorderW + CGRectGetMaxY(self.contentLableF);
     self.originaViewF = CGRectMake(originaViewX, originaViewY, originaViewW, originaViewH);
     
     //cell高
-    self.cellhightF =  CGRectGetMaxY(self.contentLableF);
+    self.cellhightF = CGRectGetMaxY(self.originaViewF) + StatusCellBorderW;
 }
 - (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font //maxW:(CGFloat)maxW
 {

@@ -12,6 +12,7 @@
 #import "userModle.h"
 #import "statusModle(微博模型).h"
 #import "statusFrame.h"
+#import "statusPhotoModle.h"
 #define HWStatusCellBorderW 10
 
 @interface HXStatusCell()
@@ -58,41 +59,43 @@
         
         UIView* originaView = [[UIView alloc]init];
         
+        //originaView.backgroundColor = [UIColor yellowColor];
+        
         [self.contentView addSubview:originaView];
         self.originaView = originaView;
         //头像
         UIImageView* iconImage = [[UIImageView alloc]init];
-        [self.originaView addSubview:iconImage];
+        [originaView addSubview:iconImage];
         self.iconImage = iconImage;
         //会员图标
         UIImageView* vipView = [[UIImageView alloc]init];
         vipView.contentMode = UIViewContentModeCenter;
-        [self.originaView addSubview:vipView];
+        [originaView addSubview:vipView];
         self.vipView = vipView;
         //配图
         UIImageView* photoView = [[UIImageView alloc]init];
-        [self.originaView addSubview:photoView];
+        [originaView addSubview:photoView];
         self.photoView = photoView;
         //昵称
         UILabel* nameLable = [[UILabel alloc]init];
-        [self.originaView addSubview:nameLable];
+        [originaView addSubview:nameLable];
         nameLable.font = HWStatusCellNameFont;
         self.nameLable = nameLable;
         //时间
         UILabel* timeLable = [[UILabel alloc]init];
-        [self.originaView addSubview:timeLable];
+        [originaView addSubview:timeLable];
         self.timeLable = timeLable;
         timeLable.font = HWStatusCellTimeFont;
         //来源
         UILabel* sourceLable = [[UILabel alloc]init];
-        [self.originaView addSubview:sourceLable];
+        [originaView addSubview:sourceLable];
         self.sourceLable = sourceLable;
         sourceLable.font = HWStatusCellSourceFont;
         
         //内容
         UILabel* contentLable = [[UILabel alloc]init];
         contentLable.numberOfLines = 0;
-        [self.originaView addSubview:contentLable];
+        [originaView addSubview:contentLable];
         self.contentLable = contentLable;
         contentLable.font = HWStatusCellContentFont;
         
@@ -126,9 +129,15 @@
         self.vipView.hidden = YES;
     }
     //配图
+    if (status.pic_urls.count) {
+        self.photoView.frame = statusFrame.photoViewF;
+        statusPhotoModle *photo = [status.pic_urls firstObject];
+        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.photoView.hidden = NO;
+    }else{
+        self.photoView.hidden = YES;
+    }
     
-    self.photoView.frame = statusFrame.photoViewF;
-    self.photoView.backgroundColor = [UIColor orangeColor];
     //昵称
 
     self.nameLable.frame = statusFrame.nameLableF;

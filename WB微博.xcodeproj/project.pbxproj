@@ -23,6 +23,7 @@
 		2761CC2E1B5D159600124EC7 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC2B1B5D159600124EC7 /* UIBarButtonItem+Extension.m */; };
 		2761CC2F1B5D159600124EC7 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC2D1B5D159600124EC7 /* UIView+Extension.m */; };
 		2761CC321B5D15E500124EC7 /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC311B5D15E500124EC7 /* SearchBar.m */; };
+		279C75921BA6972100B53BC2 /* statusPhotoModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 279C75911BA6972100B53BC2 /* statusPhotoModle.m */; };
 		27A64DF31B7C3BD0000E5920 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A64DF21B7C3BD0000E5920 /* Account.m */; };
 		27A64DFC1B7C4C1B000E5920 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A64DF81B7C4C1B000E5920 /* MBProgressHUD+MJ.m */; };
 		27A64DFD1B7C4C1B000E5920 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27A64DF91B7C4C1B000E5920 /* MBProgressHUD.bundle */; };
@@ -122,6 +123,8 @@
 		2761CC2D1B5D159600124EC7 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		2761CC301B5D15E500124EC7 /* SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBar.h; sourceTree = "<group>"; };
 		2761CC311B5D15E500124EC7 /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
+		279C75901BA6972100B53BC2 /* statusPhotoModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statusPhotoModle.h; sourceTree = "<group>"; };
+		279C75911BA6972100B53BC2 /* statusPhotoModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = statusPhotoModle.m; sourceTree = "<group>"; };
 		27A64DF11B7C3BD0000E5920 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		27A64DF21B7C3BD0000E5920 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		27A64DF71B7C4C1B000E5920 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
@@ -427,6 +430,8 @@
 				27A919991B952B1200D047EE /* statusModle(微博模型).m */,
 				27A919C61B96F5C700D047EE /* statusFrame.h */,
 				27A919C71B96F5C700D047EE /* statusFrame.m */,
+				279C75901BA6972100B53BC2 /* statusPhotoModle.h */,
+				279C75911BA6972100B53BC2 /* statusPhotoModle.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -698,6 +703,7 @@
 				27EFED771B7F7784008DB7ED /* SDWebImageDownloader.m in Sources */,
 				27EFED781B7F7784008DB7ED /* SDWebImageDownloaderOperation.m in Sources */,
 				27EFED761B7F7784008DB7ED /* SDWebImageDecoder.m in Sources */,
+				279C75921BA6972100B53BC2 /* statusPhotoModle.m in Sources */,
 				27EFED791B7F7784008DB7ED /* SDWebImageManager.m in Sources */,
 				2761CC321B5D15E500124EC7 /* SearchBar.m in Sources */,
 				270C74AA1B665BFD008FCB15 /* AFNetworkReachabilityManager.m in Sources */,
