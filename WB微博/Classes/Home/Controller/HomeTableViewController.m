@@ -28,6 +28,9 @@
 @implementation HomeTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.backgroundColor = [UIColor colorWithRed:211/255.0 green:211/255.0 blue:211/255.0 alpha:1];
+//    self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);//将cell往下移到15个单位
+    
     //设置导航栏内容
     [self setupNav];
     //获取用户信息
@@ -465,6 +468,13 @@
 //    UIImage *placeholder = [UIImage imageNamed:@"avatar_default_small"];
 //    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:placeholder];
     
+}
+/**
+ *  选中cell行
+ */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"sdfaskdlfsadkf;");
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -10,13 +10,16 @@
 #import "statusPhotoModle.h"
 
 // 昵称字体
-#define HWStatusCellNameFont [UIFont systemFontOfSize:15]
+#define HXStatusCellNameFont [UIFont systemFontOfSize:15]
 // 时间字体
-#define HWStatusCellTimeFont [UIFont systemFontOfSize:12]
+#define HXStatusCellTimeFont [UIFont systemFontOfSize:12]
 // 来源字体
-#define HWStatusCellSourceFont HWStatusCellTimeFont
+#define HXStatusCellSourceFont HXStatusCellTimeFont
 // 正文字体
-#define HWStatusCellContentFont [UIFont systemFontOfSize:15]
+#define HXStatusCellContentFont [UIFont systemFontOfSize:15]
+
+//转发内容字体
+#define HXStatusCellretweetContentFont [UIFont systemFontOfSize:13]
 
 @class statusFrame;
 @interface HXStatusCell : UITableViewCell

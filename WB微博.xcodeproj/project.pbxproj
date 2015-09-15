@@ -24,6 +24,7 @@
 		2761CC2F1B5D159600124EC7 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC2D1B5D159600124EC7 /* UIView+Extension.m */; };
 		2761CC321B5D15E500124EC7 /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC311B5D15E500124EC7 /* SearchBar.m */; };
 		279C75921BA6972100B53BC2 /* statusPhotoModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 279C75911BA6972100B53BC2 /* statusPhotoModle.m */; };
+		279C75951BA7EE7B00B53BC2 /* HXStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 279C75941BA7EE7B00B53BC2 /* HXStatusToolBar.m */; };
 		27A64DF31B7C3BD0000E5920 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A64DF21B7C3BD0000E5920 /* Account.m */; };
 		27A64DFC1B7C4C1B000E5920 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A64DF81B7C4C1B000E5920 /* MBProgressHUD+MJ.m */; };
 		27A64DFD1B7C4C1B000E5920 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27A64DF91B7C4C1B000E5920 /* MBProgressHUD.bundle */; };
@@ -125,6 +126,8 @@
 		2761CC311B5D15E500124EC7 /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
 		279C75901BA6972100B53BC2 /* statusPhotoModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statusPhotoModle.h; sourceTree = "<group>"; };
 		279C75911BA6972100B53BC2 /* statusPhotoModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = statusPhotoModle.m; sourceTree = "<group>"; };
+		279C75931BA7EE7B00B53BC2 /* HXStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXStatusToolBar.h; sourceTree = "<group>"; };
+		279C75941BA7EE7B00B53BC2 /* HXStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXStatusToolBar.m; sourceTree = "<group>"; };
 		27A64DF11B7C3BD0000E5920 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		27A64DF21B7C3BD0000E5920 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		27A64DF71B7C4C1B000E5920 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
@@ -446,6 +449,8 @@
 				27A919C11B95D88500D047EE /* LodeMoreFooter.xib */,
 				27A919C31B96ED2700D047EE /* HXStatusCell.h */,
 				27A919C41B96ED2700D047EE /* HXStatusCell.m */,
+				279C75931BA7EE7B00B53BC2 /* HXStatusToolBar.h */,
+				279C75941BA7EE7B00B53BC2 /* HXStatusToolBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -739,6 +744,7 @@
 				270C74AB1B665BFD008FCB15 /* AFSecurityPolicy.m in Sources */,
 				27DB55441B59718800312D82 /* AppDelegate.m in Sources */,
 				27EFED741B7F7784008DB7ED /* SDImageCache.m in Sources */,
+				279C75951BA7EE7B00B53BC2 /* HXStatusToolBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

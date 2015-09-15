@@ -29,4 +29,16 @@
 
 /**微博图片内容*/
 @property (nonatomic, strong) NSArray *pic_urls;
+
+/**微博转发数*/
+@property (nonatomic, assign) int reposts_count;
+
+/**微博评论数*/
+@property (nonatomic, assign) int comments_count;
+
+/**微博表态数*/
+@property (nonatomic, assign) int attitudes_count;
+
+/**被转发的原微博信息字段*/
+@property (nonatomic, strong) statusModle______ *retweeted_status;
 @end

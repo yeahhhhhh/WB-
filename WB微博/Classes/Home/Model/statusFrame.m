@@ -63,6 +63,7 @@
             self.photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
     
              originaViewH = StatusCellBorderW + CGRectGetMaxY(self.photoViewF);
+           
             
         }else{//无配图
     
@@ -71,13 +72,57 @@
     
     //原创微博整体
     CGFloat originaViewX = 0;
-    CGFloat originaViewY = 0;
+    CGFloat originaViewY = StatusCellBorderW;
     CGFloat originaViewW = [UIScreen mainScreen].bounds.size.width;
 //    originaViewH = StatusCellBorderW + CGRectGetMaxY(self.contentLableF);
     self.originaViewF = CGRectMake(originaViewX, originaViewY, originaViewW, originaViewH);
     
+    
+//    //转发微博
+    CGFloat toolbarY;
+    if (status.retweeted_status) {
+        
+        //转发微博内容
+        CGFloat retweetContentLableX = StatusCellBorderW;
+        CGFloat retweetContentLableY = StatusCellBorderW;
+        CGFloat maxW = [UIScreen mainScreen].bounds.size.width - 2 * StatusCellBorderW;
+        NSString *retweetContent = [NSString  stringWithFormat:@"@%@ : %@",status.retweeted_status.user.name , status.retweeted_status.text];
+        CGSize  retweetContentSize = [self sizeWithText:retweetContent font:StatusCellretweetContentFont maxW:maxW];
+        self.retweetContentLableF =  (CGRect){{retweetContentLableX,retweetContentLableY},retweetContentSize};
+
+        //转发微博配图
+        CGFloat retweetViewH;
+        if (status.retweeted_status.pic_urls.count ) {//有配图
+            CGFloat retweetPhotoWH = 60;
+            CGFloat retweetPhotoX = StatusCellBorderW;
+            CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLableF) + StatusCellBorderW ;
+            self.retweetPhotoViewF = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoWH, retweetPhotoWH);
+            retweetViewH = StatusCellBorderW + CGRectGetMaxY(self.retweetPhotoViewF);
+        }else{//无配图
+            retweetViewH = StatusCellBorderW + CGRectGetMaxY(self.retweetContentLableF);
+        }
+        
+        //转发微博整体
+        CGFloat retweetViewX = 0;
+        CGFloat retweetViewY = originaViewH;
+        CGFloat retweetViewW = originaViewW;
+        self.retweetViewF = CGRectMake(retweetViewX, retweetViewY, retweetViewW, retweetViewH);
+        
+         //工具条y坐标
+         toolbarY = CGRectGetMaxY(self.retweetViewF);
+
+    }else{//工具条y坐标
+          toolbarY = CGRectGetMaxY(self.originaViewF);
+    }
+ 
+    //工具条
+    CGFloat toolbarX = 0;
+    CGFloat toolbarW = [UIScreen mainScreen].bounds.size.width;
+    CGFloat toolbarH = 35;
+    self.toolbarF = CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);
     //cell高
-    self.cellhightF = CGRectGetMaxY(self.originaViewF) + StatusCellBorderW;
+    self.cellhightF = CGRectGetMaxY(self.toolbarF) ;
+    
 }
 - (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font //maxW:(CGFloat)maxW
 {

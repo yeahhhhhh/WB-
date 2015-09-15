@@ -25,6 +25,9 @@
 //内容字体
 #define StatusCellContentFont [UIFont systemFontOfSize:15]
 
+//转发内容字体
+#define StatusCellretweetContentFont [UIFont systemFontOfSize:13]
+
 @interface statusFrame : NSObject
 
 @property (nonatomic, strong) statusModle______ *status;
@@ -45,5 +48,24 @@
 //内容
 @property (nonatomic, assign) CGRect  contentLableF;
 
+/**转发微博*/
+@property (nonatomic, assign) CGRect retweetViewF;
+/**转发微博内容*/
+@property (nonatomic, assign) CGRect retweetContentLableF;
+/**转发微博配图*/
+@property (nonatomic, assign) CGRect retweetPhotoViewF;
+
+/**工具条*/
+@property (nonatomic, assign) CGRect  toolbarF;
+
 @property (nonatomic, assign) CGFloat  cellhightF;
+
+
+
+
 @end
+
+
+
+
+
