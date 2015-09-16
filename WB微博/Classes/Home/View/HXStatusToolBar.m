@@ -150,23 +150,27 @@
 //        [self.unlikeBtn setTitle:@"赞 " forState:UIControlStateNormal];
 //        
 //    }
-//    [self setupTitle:@"赞 " count:status.attitudes_count Btn:self.unlikeBtn];
-//    [self setupTitle:@"评论 " count:status.comments_count Btn:self.commentBtn];
-//    [self setupTitle:@"转发 " count:status.reposts_count Btn:self.retweetBtn];
+    [self setupTitle:@"赞 " count:status.attitudes_count Btn:self.unlikeBtn];
+    [self setupTitle:@"评论 " count:status.comments_count Btn:self.commentBtn];
+    [self setupTitle:@"转发 " count:status.reposts_count Btn:self.retweetBtn];
     
 }
 
-//- (void)setupTitle:(NSString *)title count:(int)count Btn:(UIButton *)Btn
-//{
-//    if (count) {
-//        NSString *title = [NSString stringWithFormat:@"%d",count];
-//        [Btn setTitle:title forState:UIControlStateNormal];
-//    }else
-//    {
-//        [Btn setTitle:title forState:UIControlStateNormal];
-//        
-//    }
-//}
+- (void)setupTitle:(NSString *)title count:(int)count Btn:(UIButton *)Btn
+{
+    if (count) {
+        if (count < 10000) { // 不足10000：直接显示数字，比如786、7986
+            title = [NSString stringWithFormat:@"%d", count];
+        } else { // 达到10000：显示xx.x万，不要有.0的情况
+            double wan = count / 10000.0;
+            title = [NSString stringWithFormat:@"%.1f万", wan];
+            // 将字符串里面的.0去掉
+            title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
+        }
+        
+        [Btn setTitle:title forState:UIControlStateNormal];
+    }
+}
 
 
 
