@@ -14,6 +14,7 @@
 #import "statusFrame.h"
 #import "statusPhotoModle.h"
 #import "HXStatusToolBar.h"
+#import "NSString+Extention.h"
 #define HXStatusCellBorderW 10
 
 @interface HXStatusCell()
@@ -190,16 +191,16 @@
     
     
     //会员图标
-    if (user.isVip) {
-        self.vipView.hidden = NO;
+//    if ((int)user.mbtype ) {
+//        self.vipView.hidden = NO;
         self.vipView.frame = statusFrame.vipViewF;
-        NSString *vipNmae = [NSString stringWithFormat:@"common_icon_membership_level%d",user.mbrank];
-        self.vipView.image = [UIImage imageNamed:vipNmae];
-    }
-    else
-    {
-        self.vipView.hidden = YES;
-    }
+//        NSString *vipNmae = [NSString stringWithFormat:@"common_icon_membership_level%d",user.mbrank];
+    self.vipView.image = [UIImage imageNamed:@"common_icon_membership_level1"];
+//    }
+//    else
+//    {
+//        self.vipView.hidden = YES;
+//    }
     //配图
     if (status.pic_urls.count) {
         self.photoView.frame = statusFrame.photoViewF;
@@ -217,15 +218,35 @@
     
 
 
+//    //时间
+//    NSString *nowtime = status.created_at;
+//    NSUInteger timel = self.timeLable.text.length;
+//    if (timel && timel != nowtime.length) {
+//        
+//    }
+    
     //时间
-
-    self.timeLable.frame = statusFrame.timeLableF;
+    CGFloat timeX = statusFrame.nameLableF.origin.x;
+    CGFloat timeY = CGRectGetMaxY(self.statusFrame.nameLableF) ;
+    CGSize  timeSize = [status.created_at sizeWithfont:HXStatusCellTimeFont];
+    self.timeLable.frame =(CGRect){{timeX,timeY},timeSize};
     self.timeLable.text = status.created_at;
     
     //来源
-
-    self.sourceLable.frame = statusFrame.sourceLableF;
+    CGFloat sourceX =  CGRectGetMaxX((CGRect){{timeX,timeY},timeSize}) +  StatusCellBorderW;
+    CGFloat sourceY = timeY;
+    CGSize  sourceSize = [status.source sizeWithfont:HXStatusCellTimeFont];
+    self.sourceLable.frame = (CGRect){{sourceX,sourceY},sourceSize};
     self.sourceLable.text = status.source;
+    
+//    //时间
+//    self.timeLable.frame = statusFrame.timeLableF;
+//    self.timeLable.text = status.created_at;
+    
+    //来源
+
+//    self.sourceLable.frame = statusFrame.sourceLableF;
+//    self.sourceLable.text = status.source;
     
     //内容
 

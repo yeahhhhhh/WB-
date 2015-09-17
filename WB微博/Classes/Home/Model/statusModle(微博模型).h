@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MJExtension.h"
 #import "statusPhotoModle.h"
+#import "NSDate+Extention.h"
 @class userModle;
 @interface statusModle______ : NSObject
 

@@ -10,8 +10,10 @@
 #import "UIView+Extension.h"
 #import "statusModle(微博模型).h"
 @interface HXStatusToolBar()
+
 /** 里面存放所有的按钮 */
 @property (nonatomic, strong) NSMutableArray *btns;
+
 /** 里面存放所有的分割线 */
 @property (nonatomic, strong) NSMutableArray *dividers;
 
@@ -124,32 +126,7 @@
 - (void)setStatus:(statusModle______ *)status
 {
     _status = status;
-//    if (status.reposts_count) {
-//        NSString *string = [NSString stringWithFormat:@"%d",status.reposts_count];
-//        [self.retweetBtn setTitle:string forState:UIControlStateNormal];
-//    }else
-//    {
-//        [self.retweetBtn setTitle:@"转发 " forState:UIControlStateNormal];
-//        
-//    }
-//    
-//    if (status.comments_count) {
-//        NSString *string = [NSString stringWithFormat:@"%d",status.comments_count];
-//        [self.commentBtn setTitle:string forState:UIControlStateNormal];
-//    }else
-//    {
-//        [self.commentBtn setTitle:@"评论 " forState:UIControlStateNormal];
-//        
-//    }
-//    
-//    if (status.attitudes_count) {
-//        NSString *string = [NSString stringWithFormat:@"%d",status.attitudes_count];
-//        [self.unlikeBtn setTitle:string forState:UIControlStateNormal];
-//    }else
-//    {
-//        [self.unlikeBtn setTitle:@"赞 " forState:UIControlStateNormal];
-//        
-//    }
+
     [self setupTitle:@"赞 " count:status.attitudes_count Btn:self.unlikeBtn];
     [self setupTitle:@"评论 " count:status.comments_count Btn:self.commentBtn];
     [self setupTitle:@"转发 " count:status.reposts_count Btn:self.retweetBtn];

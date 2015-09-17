@@ -17,16 +17,19 @@
 
 #define StatusCellBorderW 10
 //昵称字体
-#define StatusCellNameFont [UIFont systemFontOfSize:15]
+#define HXStatusCellNameFont [UIFont systemFontOfSize:15]
 
 //时间字体
-#define StatusCellTimeFont [UIFont systemFontOfSize:12]
+#define HXStatusCellTimeFont [UIFont systemFontOfSize:12]
 
 //内容字体
-#define StatusCellContentFont [UIFont systemFontOfSize:15]
+#define HXStatusCellContentFont [UIFont systemFontOfSize:15]
+
+// 来源字体
+#define HXStatusCellSourceFont [UIFont systemFontOfSize:12]
 
 //转发内容字体
-#define StatusCellretweetContentFont [UIFont systemFontOfSize:13]
+#define HXStatusCellretweetContentFont [UIFont systemFontOfSize:13]
 
 @interface statusFrame : NSObject
 

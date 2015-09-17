@@ -9,13 +9,13 @@
 #import "userModle.h"
 
 @implementation userModle
-- (void)setMbtype:(int *)mbtype
-{
-    _mbtype = mbtype;
-    
-    self.vip = mbtype > 2;
-    
-}
+//- (void)setMbtype:(int *)mbtype
+//{
+//    _mbtype = mbtype;
+//    
+//    self.vip = mbtype > 2;
+//    
+//}
 //- (BOOL)isVip
 //{
 //    return self.mbrank > 2;

@@ -131,7 +131,13 @@
     // 3.发送请求
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject)
      {
+//         NSDictionary * d = [[NSDictionary alloc] writeToFile:<#(NSString *)#> atomically:<#(BOOL)#>];
+         
+         
+         
          NSArray *array = [statusModle______ objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+         
+//         NSLog(@"%@",responseObject);
          
          // 将 HWStatus数组 转为 HWStatusFrame数组
          NSArray *newFrames = [self stausFramesWithStatuses:array];
