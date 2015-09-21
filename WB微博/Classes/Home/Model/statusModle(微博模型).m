@@ -83,11 +83,17 @@
  */
 - (void)setSource:(NSString *)source
 {
-    NSRange range ;
-    range.location = [source rangeOfString:@">"].location + 1;
-    range.length = [source rangeOfString: @"</"].location - range.location;
+    _source = source;
+
+    if (source.length > 0) {
+        NSRange range ;
+        range.location = [source rangeOfString:@">"].location + 1;
+        range.length = [source rangeOfString: @"</"].location - range.location;
+        _source = [NSString stringWithFormat:@"来自:%@",[source substringWithRange:range]];
+        
+    }
     
-    _source = [NSString stringWithFormat:@"来自:%@",[source substringWithRange:range]];
+    
     
 }
 

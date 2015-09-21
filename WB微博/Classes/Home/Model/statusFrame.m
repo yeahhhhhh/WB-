@@ -9,6 +9,7 @@
 #import "statusFrame.h"
 #import "userModle.h"
 #import "NSString+Extention.h"
+#import "HXStatusPhotosView.h"
 @implementation statusFrame
 - (void)setStatus:(statusModle______ *)status
 {
@@ -57,11 +58,14 @@
     
     //配图
     CGFloat originaViewH;
+    
         if (status.pic_urls.count ) {//有配图
-            CGFloat photoWH = 60;
             CGFloat photoX = StatusCellBorderW;
             CGFloat photoY = CGRectGetMaxY(self.contentLableF) + StatusCellBorderW ;
-            self.photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+            
+            CGSize photoSize = [ HXStatusPhotosView sizeWithCount:(int )status.pic_urls.count];
+            
+            self.photoViewF = (CGRect){{photoX,photoY},photoSize};
     
              originaViewH = StatusCellBorderW + CGRectGetMaxY(self.photoViewF);
            
@@ -94,10 +98,11 @@
         //转发微博配图
         CGFloat retweetViewH;
         if (status.retweeted_status.pic_urls.count ) {//有配图
-            CGFloat retweetPhotoWH = 60;
+            
             CGFloat retweetPhotoX = StatusCellBorderW;
             CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLableF) + StatusCellBorderW ;
-            self.retweetPhotoViewF = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoWH, retweetPhotoWH);
+            CGSize retweetPhotoSize = [HXStatusPhotosView sizeWithCount:(int )status.retweeted_status.pic_urls.count];
+            self.retweetPhotoViewF = (CGRect){{retweetPhotoX,retweetPhotoY},retweetPhotoSize};
             retweetViewH = StatusCellBorderW + CGRectGetMaxY(self.retweetPhotoViewF);
         }else{//无配图
             retweetViewH = StatusCellBorderW + CGRectGetMaxY(self.retweetContentLableF);

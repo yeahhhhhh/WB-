@@ -13,7 +13,7 @@
 #import "AccountTool.h"
 #import "SDWebImageManager.h"
 @interface AppDelegate ()
-
+@property (nonatomic , assign)UIBackgroundTaskIdentifier task;
 @end
 
 @implementation AppDelegate
@@ -44,7 +44,7 @@
         if ([lastVersion isEqualToString:currentVersion])
         {
             //设置控制器
-            UITabBarController *tabbarVC = [[WBTabBarViewController alloc]init];
+            WBTabBarViewController *tabbarVC = [[WBTabBarViewController alloc]init];
             self.window.rootViewController = tabbarVC;
         }
         else
@@ -78,7 +78,7 @@
 //    [tabbarVC addChildViewController:home];
 //    [tabbarVC addChildViewController:messageCenter];
 //    [tabbarVC addChildViewController:discover];
-//    [tabbarVC addChildViewController:profile];
+//    [tabbarVC addChildViewController:profile];   
 
     
 }
@@ -102,11 +102,10 @@
      *  4.后台运行状态
      */
     // 向操作系统申请后台运行的资格，能维持多久，是不确定的
-    UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
+    self.task = [application beginBackgroundTaskWithExpirationHandler:^{
         // 当申请的后台运行时间已经结束（过期），就会调用这个block
-        
         // 赶紧结束任务
-        [application endBackgroundTask:task];
+        [application endBackgroundTask:self.task];
     }];
     
     // 在Info.plst中设置后台模式：Required background modes == App plays audio or streams audio/video using AirPlay

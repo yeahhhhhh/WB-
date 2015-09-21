@@ -84,7 +84,7 @@
     
 }
 
-#pragma mark - HWTabBarDelegate代理方法
+#pragma mark - WBTabBarDelegate代理方法
 - (void)tabBarDidClickPlusButton:(HXTabBar *)tabBar
 {
     HomeMenuController *vc = [[HomeMenuController alloc] init];

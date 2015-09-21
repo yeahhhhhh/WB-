@@ -127,17 +127,21 @@
         params[@"since_id"] = firetStatusF.status.idstr;
     }
     
-    //    params[@"count"] = @1;
+//        params[@"count"] = @1;
     // 3.发送请求
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject)
      {
-//         NSDictionary * d = [[NSDictionary alloc] writeToFile:<#(NSString *)#> atomically:<#(BOOL)#>];
-         
-         
-         
          NSArray *array = [statusModle______ objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
          
-//         NSLog(@"%@",responseObject);
+         
+         /**
+          *  将json转换为plist文件
+          */
+//         NSArray *array = [statusModle______ objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+//         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//         dict[@"statuses"] = [statusModle______ keyValuesArrayWithObjectArray:array];
+//         dict[@"total_number"] = responseObject[@"total_number"];
+//         [dict writeToFile:@"/Users/huangxin/Desktop/huang.plist"  atomically:YES];
          
          // 将 HWStatus数组 转为 HWStatusFrame数组
          NSArray *newFrames = [self stausFramesWithStatuses:array];

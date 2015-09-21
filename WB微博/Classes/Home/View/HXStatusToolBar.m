@@ -100,7 +100,6 @@
     [super layoutSubviews];
     
     int count = (int)self.btns.count;
-    NSLog(@"%d",count);
     CGFloat btnW = self.width / count;
     
     

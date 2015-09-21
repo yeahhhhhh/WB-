@@ -15,17 +15,19 @@
 #import "statusPhotoModle.h"
 #import "HXStatusToolBar.h"
 #import "NSString+Extention.h"
+#import "HXStatusPhotosView.h"
+#import "HXiconView.h"
 #define HXStatusCellBorderW 10
 
 @interface HXStatusCell()
 /**原创微博*/
 @property (nonatomic, weak) UIView* originaView;
 /**头像*/
-@property (nonatomic, weak) UIImageView* iconImage; 
+@property (nonatomic, weak) HXiconView* iconImage;
 /**会员图标*/
 @property (nonatomic, weak) UIImageView* vipView;
 /**配图*/
-@property (nonatomic, weak) UIImageView* photoView;
+@property (nonatomic, weak) HXStatusPhotosView* photosView;
 /**昵称*/
 @property (nonatomic, weak) UILabel* nameLable;
 /**时间*/
@@ -40,7 +42,7 @@
 /**转发微博内容*/
 @property (nonatomic, weak) UILabel* retweetContentLable;
 /**转发微博配图*/
-@property (nonatomic, weak) UIImageView* retweetPhotoView;
+@property (nonatomic, weak) HXStatusPhotosView* retweetPhotosView;
 
 /**工具条*/
 @property (nonatomic, weak) HXStatusToolBar* toolbar;
@@ -101,7 +103,7 @@
     [self.contentView addSubview:originaView];
     self.originaView = originaView;
     //头像
-    UIImageView* iconImage = [[UIImageView alloc]init];
+    HXiconView* iconImage = [[HXiconView alloc]init];
     [originaView addSubview:iconImage];
     self.iconImage = iconImage;
     //会员图标
@@ -110,9 +112,9 @@
     [originaView addSubview:vipView];
     self.vipView = vipView;
     //配图
-    UIImageView* photoView = [[UIImageView alloc]init];
-    [originaView addSubview:photoView];
-    self.photoView = photoView;
+    HXStatusPhotosView* photosView = [[HXStatusPhotosView alloc]init];
+    [originaView addSubview:photosView];
+    self.photosView = photosView;
     //昵称
     UILabel* nameLable = [[UILabel alloc]init];
     [originaView addSubview:nameLable];
@@ -155,9 +157,9 @@
     retweetContentLable.font = HXStatusCellretweetContentFont;
     
     //转发微博配图
-    UIImageView* retweetPhotoView = [[UIImageView alloc]init];
-    [retweetView addSubview:retweetPhotoView];
-    self.retweetPhotoView = retweetPhotoView;
+    HXStatusPhotosView* retweetPhotosView = [[HXStatusPhotosView alloc]init];
+    [retweetView addSubview:retweetPhotosView];
+    self.retweetPhotosView = retweetPhotosView;
     
 }
 
@@ -186,7 +188,8 @@
     self.originaView.backgroundColor = [UIColor whiteColor];
     //头像
     self.iconImage.frame = statusFrame.iconImageF;
-    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    self.iconImage.user = user;
+//    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
 //    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]];
     
     
@@ -203,12 +206,11 @@
 //    }
     //配图
     if (status.pic_urls.count) {
-        self.photoView.frame = statusFrame.photoViewF;
-        statusPhotoModle *photo = [status.pic_urls firstObject];
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-        self.photoView.hidden = NO;
+        self.photosView.frame = statusFrame.photoViewF;
+        self.photosView.photos = status.pic_urls;//将微博配图数组传递给photos
+        self.photosView.hidden = NO;
     }else{
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
     }
     
     //昵称
@@ -218,13 +220,6 @@
     
 
 
-//    //时间
-//    NSString *nowtime = status.created_at;
-//    NSUInteger timel = self.timeLable.text.length;
-//    if (timel && timel != nowtime.length) {
-//        
-//    }
-    
     //时间
     CGFloat timeX = statusFrame.nameLableF.origin.x;
     CGFloat timeY = CGRectGetMaxY(self.statusFrame.nameLableF) ;
@@ -268,14 +263,12 @@
         
         /**转发微博图片*/
         if (status.retweeted_status.pic_urls.count){
-            self.retweetPhotoView.frame = statusFrame.retweetPhotoViewF;
-            statusPhotoModle *photo = [status.retweeted_status.pic_urls firstObject];
-            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-            self.retweetPhotoView.hidden = NO;
+            self.retweetPhotosView.frame = statusFrame.retweetPhotoViewF;
+            self.retweetPhotosView.photos = status.retweeted_status.pic_urls;
+            self.retweetPhotosView.hidden = NO;
         }else{
-            self.retweetPhotoView.hidden = YES;//没有配图 隐藏
+            self.retweetPhotosView.hidden = YES;//没有配图 隐藏
         }
-        
         
     }else{
         self.retweetView.hidden = YES;//隐藏
