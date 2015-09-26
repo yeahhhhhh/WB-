@@ -23,6 +23,9 @@
 
 @property (nonatomic, strong) NSDate *create_time;//access_token的创建时间
 
+/** 用户的昵称 */
+@property (nonatomic, copy) NSString *name;
+
 +(instancetype)accountWithDict:(NSDictionary *)dict;
 
 @end

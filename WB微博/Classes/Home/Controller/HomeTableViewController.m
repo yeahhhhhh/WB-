@@ -144,6 +144,7 @@
 //         [dict writeToFile:@"/Users/huangxin/Desktop/huang.plist"  atomically:YES];
          
          // 将 HWStatus数组 转为 HWStatusFrame数组
+         
          NSArray *newFrames = [self stausFramesWithStatuses:array];
          
          
@@ -340,7 +341,7 @@
 /**
  * 显示微博刷新数量
  */
-- (void)showNewStatusCount:(int )count
+- (void)showNewStatusCount:(NSUInteger )count
 {
     //创建lable
     UILabel *lable = [[UILabel alloc]init];
@@ -354,7 +355,7 @@
     }
     else{
         
-        lable.text = [NSString stringWithFormat:@"共有%i条微博",count];
+        lable.text = [NSString stringWithFormat:@"共有%lu条微博",(unsigned long)count];
     }
     lable.textAlignment = NSTextAlignmentCenter;
     lable.textColor = [UIColor whiteColor];

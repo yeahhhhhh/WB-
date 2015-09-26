@@ -26,17 +26,20 @@
 }
 + (void)initialize
 {
-    //普通状态
-    //设置整个item所有样式
+    
+    //设置整个项目item的主题样式
     UIBarButtonItem *item = [UIBarButtonItem appearance];
+    
+    //普通状态
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
     [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+    
     //不可用状态
     NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionary];
-    disableTextAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
-    disableTextAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    disableTextAttrs[NSForegroundColorAttributeName] = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.7];
+    disableTextAttrs[NSFontAttributeName] = textAttrs[NSFontAttributeName];
     [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
     
 }
@@ -58,7 +61,7 @@
 //        [backbut addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside ];
 //        [morebut addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside ];    
         
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemwithTarget:self action:@selector(back) image:@"navigationbar_back" Highimage:@"navigationbar_back_highlighted"];
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemwithTarget:self action:@selector(back) image:nil  Highimage:@"navigationbar_back_highlighted"];
         viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemwithTarget:self action:@selector(more) image:@"navigationbar_more" Highimage:@"navigationbar_more_highlighted"];
     }
     

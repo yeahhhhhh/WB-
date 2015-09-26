@@ -20,6 +20,9 @@
 		273E00601B5E3B750017D6C7 /* HXDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 273E005F1B5E3B750017D6C7 /* HXDropdownMenu.m */; };
 		273E00631B5E4D6E0017D6C7 /* HomeMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273E00621B5E4D6E0017D6C7 /* HomeMenuController.m */; };
 		2749506C1B60F01500D510FC /* HXTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2749506B1B60F01500D510FC /* HXTabBar.m */; };
+		2750594F1BB301A2004D9037 /* HXComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2750594E1BB301A2004D9037 /* HXComposeViewController.m */; };
+		275059521BB307F9004D9037 /* HXComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 275059511BB307F9004D9037 /* HXComposeToolbar.m */; };
+		275059551BB3BF8F004D9037 /* HXComposePhotpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 275059541BB3BF8F004D9037 /* HXComposePhotpView.m */; };
 		2761CC2E1B5D159600124EC7 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC2B1B5D159600124EC7 /* UIBarButtonItem+Extension.m */; };
 		2761CC2F1B5D159600124EC7 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC2D1B5D159600124EC7 /* UIView+Extension.m */; };
 		2761CC321B5D15E500124EC7 /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC311B5D15E500124EC7 /* SearchBar.m */; };
@@ -82,6 +85,7 @@
 		27EFED801B7F7784008DB7ED /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFED6F1B7F7784008DB7ED /* UIImageView+WebCache.m */; };
 		27EFED811B7F7784008DB7ED /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFED711B7F7784008DB7ED /* UIView+WebCacheOperation.m */; };
 		27F08D771BAEC98300B97A0A /* HXiconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F08D761BAEC98300B97A0A /* HXiconView.m */; };
+		27F830431BB04EA800D473CA /* HXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F830421BB04EA800D473CA /* HXTextView.m */; };
 		27FB4B301B5A20A500C446FF /* WBTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FB4B2F1B5A20A500C446FF /* WBTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +127,12 @@
 		273E00621B5E4D6E0017D6C7 /* HomeMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMenuController.m; sourceTree = "<group>"; };
 		2749506A1B60F01500D510FC /* HXTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXTabBar.h; sourceTree = "<group>"; };
 		2749506B1B60F01500D510FC /* HXTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXTabBar.m; sourceTree = "<group>"; };
+		2750594D1BB301A2004D9037 /* HXComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXComposeViewController.h; sourceTree = "<group>"; };
+		2750594E1BB301A2004D9037 /* HXComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXComposeViewController.m; sourceTree = "<group>"; };
+		275059501BB307F9004D9037 /* HXComposeToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXComposeToolbar.h; sourceTree = "<group>"; };
+		275059511BB307F9004D9037 /* HXComposeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXComposeToolbar.m; sourceTree = "<group>"; };
+		275059531BB3BF8F004D9037 /* HXComposePhotpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXComposePhotpView.h; sourceTree = "<group>"; };
+		275059541BB3BF8F004D9037 /* HXComposePhotpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXComposePhotpView.m; sourceTree = "<group>"; };
 		2761CC2A1B5D159600124EC7 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		2761CC2B1B5D159600124EC7 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		2761CC2C1B5D159600124EC7 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -246,6 +256,8 @@
 		27EFED711B7F7784008DB7ED /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		27F08D751BAEC98300B97A0A /* HXiconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXiconView.h; sourceTree = "<group>"; };
 		27F08D761BAEC98300B97A0A /* HXiconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXiconView.m; sourceTree = "<group>"; };
+		27F830411BB04EA800D473CA /* HXTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXTextView.h; sourceTree = "<group>"; };
+		27F830421BB04EA800D473CA /* HXTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXTextView.m; sourceTree = "<group>"; };
 		27FB4B2E1B5A20A500C446FF /* WBTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBarViewController.h; sourceTree = "<group>"; };
 		27FB4B2F1B5A20A500C446FF /* WBTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -314,6 +326,33 @@
 			path = "../NewFeature(版本新特性)/AFNetworking";
 			sourceTree = "<group>";
 		};
+		2750594A1BB30131004D9037 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2750594D1BB301A2004D9037 /* HXComposeViewController.h */,
+				2750594E1BB301A2004D9037 /* HXComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2750594B1BB3013F004D9037 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				275059501BB307F9004D9037 /* HXComposeToolbar.h */,
+				275059511BB307F9004D9037 /* HXComposeToolbar.m */,
+				275059531BB3BF8F004D9037 /* HXComposePhotpView.h */,
+				275059541BB3BF8F004D9037 /* HXComposePhotpView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2750594C1BB3015D004D9037 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2761CC291B5D159600124EC7 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +371,8 @@
 				2775DCAA1BAA528C00C6B6DF /* NSDate+Extention.m */,
 				2775DCAC1BAA63CC00C6B6DF /* NSString+Extention.h */,
 				2775DCAD1BAA63CC00C6B6DF /* NSString+Extention.m */,
+				27F830411BB04EA800D473CA /* HXTextView.h */,
+				27F830421BB04EA800D473CA /* HXTextView.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -607,16 +648,11 @@
 		27F830391BAFE64D00D473CA /* Compose(发微博) */ = {
 			isa = PBXGroup;
 			children = (
-				27F8303A1BAFE64D00D473CA /* Controller */,
+				2750594B1BB3013F004D9037 /* View */,
+				2750594C1BB3015D004D9037 /* Model */,
+				2750594A1BB30131004D9037 /* Controller */,
 			);
 			path = "Compose(发微博)";
-			sourceTree = "<group>";
-		};
-		27F8303A1BAFE64D00D473CA /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -726,12 +762,14 @@
 				2761CC2E1B5D159600124EC7 /* UIBarButtonItem+Extension.m in Sources */,
 				27010F051B662C7600983A1E /* OAuthViewController.m in Sources */,
 				2761CC2F1B5D159600124EC7 /* UIView+Extension.m in Sources */,
+				275059551BB3BF8F004D9037 /* HXComposePhotpView.m in Sources */,
 				27A64DFC1B7C4C1B000E5920 /* MBProgressHUD+MJ.m in Sources */,
 				2775DCB41BABA35E00C6B6DF /* HXStatusPhotoView.m in Sources */,
 				27A919BC1B958DCF00D047EE /* NSObject+MJProperty.m in Sources */,
 				27EFED801B7F7784008DB7ED /* UIImageView+WebCache.m in Sources */,
 				27A64E021B7C8041000E5920 /* AccountTool.m in Sources */,
 				27DB55451B59718800312D82 /* main.m in Sources */,
+				2750594F1BB301A2004D9037 /* HXComposeViewController.m in Sources */,
 				27EFED7B1B7F7784008DB7ED /* UIButton+WebCache.m in Sources */,
 				2775DCAE1BAA63CC00C6B6DF /* NSString+Extention.m in Sources */,
 				27A919C51B96ED2700D047EE /* HXStatusCell.m in Sources */,
@@ -769,6 +807,7 @@
 				270C74AD1B665BFD008FCB15 /* AFURLRequestSerialization.m in Sources */,
 				27B3A0561B64BFA600FF72E1 /* NewFeatureViewController.m in Sources */,
 				27EFED721B7F7784008DB7ED /* MKAnnotationView+WebCache.m in Sources */,
+				275059521BB307F9004D9037 /* HXComposeToolbar.m in Sources */,
 				27A919971B952A5200D047EE /* userModle.m in Sources */,
 				27EFED7D1B7F7784008DB7ED /* UIImage+MultiFormat.m in Sources */,
 				2749506C1B60F01500D510FC /* HXTabBar.m in Sources */,
@@ -776,6 +815,7 @@
 				27A919BB1B958DCF00D047EE /* NSObject+MJKeyValue.m in Sources */,
 				27BF0AD41B7DDCA700980C4E /* Foundation+Log.m in Sources */,
 				27EFED731B7F7784008DB7ED /* NSData+ImageContentType.m in Sources */,
+				27F830431BB04EA800D473CA /* HXTextView.m in Sources */,
 				27A919BD1B958DCF00D047EE /* NSString+MJExtension.m in Sources */,
 				27BF0AE51B7E1A6900980C4E /* HXTitleButton.m in Sources */,
 				27EFED7E1B7F7784008DB7ED /* UIImage+WebP.m in Sources */,

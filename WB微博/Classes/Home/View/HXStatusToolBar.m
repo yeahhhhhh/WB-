@@ -18,10 +18,10 @@
 @property (nonatomic, strong) NSMutableArray *dividers;
 
 /**微博评论按钮*/
-@property (nonatomic, weak) UIButton *retweetBtn;
+@property (nonatomic, weak) UIButton *commentBtn;
 
 /**微博转发按钮*/
-@property (nonatomic, weak) UIButton *commentBtn;
+@property (nonatomic, weak) UIButton *retweetBtn;
 
 /**微博评赞按钮*/
 @property (nonatomic, weak) UIButton *unlikeBtn;
@@ -125,7 +125,7 @@
 - (void)setStatus:(statusModle______ *)status
 {
     _status = status;
-
+    
     [self setupTitle:@"赞 " count:status.attitudes_count Btn:self.unlikeBtn];
     [self setupTitle:@"评论 " count:status.comments_count Btn:self.commentBtn];
     [self setupTitle:@"转发 " count:status.reposts_count Btn:self.retweetBtn];

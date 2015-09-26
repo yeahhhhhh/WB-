@@ -53,8 +53,8 @@
     
     
     
-    if ([createdDate isThisYear]) {
-        if ([createdDate isYesterday]) {
+    if ([createdDate  isThisYear]) {
+        if ([createdDate  isYesterday]) {
             f.dateFormat = @"昨天 HH:mm";
             return [f stringFromDate:createdDate];
         }else if ([createdDate isToday]){

@@ -11,6 +11,8 @@
 #import "UIView+Extension.h"
 #import "HXTabBar.h"//自定义的TabBar 用于添加  “＋”
 #import "HomeMenuController.h"
+#import "HXComposeViewController.h"
+//发微博控制器
 @interface WBTabBarViewController ()
 
 @end
@@ -87,8 +89,9 @@
 #pragma mark - WBTabBarDelegate代理方法
 - (void)tabBarDidClickPlusButton:(HXTabBar *)tabBar
 {
-    HomeMenuController *vc = [[HomeMenuController alloc] init];
-    vc.view.backgroundColor = [UIColor redColor];
-    [self presentViewController:vc animated:YES completion:nil];
+    HXComposeViewController * compose = [[HXComposeViewController alloc]init];
+    
+    BastNavigationViewController *nav = [[BastNavigationViewController alloc]initWithRootViewController:compose];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 @end

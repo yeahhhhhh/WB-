@@ -111,7 +111,7 @@
     
     [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject)
     {
-        //NSLog(@"请求成功-%@", responseObject);
+        NSLog(@"请求成功-%@", responseObject);
         [MBProgressHUD hideHUD];//隐藏
         //将返回的账号数据转换为模型存入沙盒
          Account *account = [Account accountWithDict:responseObject];
