@@ -18,7 +18,7 @@
 #import "UIImageView+WebCache.h"
 #import "userModle.h"
 #import "statusModle(微博模型).h"
-#import "MJExtension.h"
+//#import "MJExtension.h"
 #import "LodeMoreFooter(下拉加载).h"
 #import "HXStatusCell.h"
 #import "statusFrame.h"

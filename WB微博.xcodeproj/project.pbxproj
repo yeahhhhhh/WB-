@@ -17,15 +17,21 @@
 		270C74AD1B665BFD008FCB15 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 270C74A21B665BFD008FCB15 /* AFURLRequestSerialization.m */; };
 		270C74AE1B665BFD008FCB15 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 270C74A41B665BFD008FCB15 /* AFURLResponseSerialization.m */; };
 		270C74AF1B665BFD008FCB15 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 270C74A61B665BFD008FCB15 /* AFURLSessionManager.m */; };
+		270C7E571BB6ED160045B5D5 /* HXEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 270C7E561BB6ED160045B5D5 /* HXEmotionTabBarButton.m */; };
 		273E00601B5E3B750017D6C7 /* HXDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 273E005F1B5E3B750017D6C7 /* HXDropdownMenu.m */; };
 		273E00631B5E4D6E0017D6C7 /* HomeMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273E00621B5E4D6E0017D6C7 /* HomeMenuController.m */; };
 		2749506C1B60F01500D510FC /* HXTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2749506B1B60F01500D510FC /* HXTabBar.m */; };
 		2750594F1BB301A2004D9037 /* HXComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2750594E1BB301A2004D9037 /* HXComposeViewController.m */; };
 		275059521BB307F9004D9037 /* HXComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 275059511BB307F9004D9037 /* HXComposeToolbar.m */; };
 		275059551BB3BF8F004D9037 /* HXComposePhotpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 275059541BB3BF8F004D9037 /* HXComposePhotpView.m */; };
+		275059581BB68A3D004D9037 /* HXEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 275059571BB68A3D004D9037 /* HXEmotionKeyboard.m */; };
+		2750595B1BB68BBA004D9037 /* HXEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2750595A1BB68BBA004D9037 /* HXEmotionTabBar.m */; };
+		2750595E1BB68CA4004D9037 /* HXEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2750595D1BB68CA4004D9037 /* HXEmotionListView.m */; };
 		2761CC2E1B5D159600124EC7 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC2B1B5D159600124EC7 /* UIBarButtonItem+Extension.m */; };
 		2761CC2F1B5D159600124EC7 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC2D1B5D159600124EC7 /* UIView+Extension.m */; };
 		2761CC321B5D15E500124EC7 /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC311B5D15E500124EC7 /* SearchBar.m */; };
+		276200451BB7E52F00662498 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 276200441BB7E52F00662498 /* EmotionIcons */; };
+		276200481BB7ECC900662498 /* HXEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 276200471BB7ECC900662498 /* HXEmotion.m */; };
 		2775DCAB1BAA528C00C6B6DF /* NSDate+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2775DCAA1BAA528C00C6B6DF /* NSDate+Extention.m */; };
 		2775DCAE1BAA63CC00C6B6DF /* NSString+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2775DCAD1BAA63CC00C6B6DF /* NSString+Extention.m */; };
 		2775DCB11BAA77B400C6B6DF /* HXStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2775DCB01BAA77B400C6B6DF /* HXStatusPhotosView.m */; };
@@ -121,6 +127,8 @@
 		270C74A41B665BFD008FCB15 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		270C74A51B665BFD008FCB15 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		270C74A61B665BFD008FCB15 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		270C7E551BB6ED160045B5D5 /* HXEmotionTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotionTabBarButton.h; sourceTree = "<group>"; };
+		270C7E561BB6ED160045B5D5 /* HXEmotionTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionTabBarButton.m; sourceTree = "<group>"; };
 		273E005E1B5E3B750017D6C7 /* HXDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXDropdownMenu.h; sourceTree = "<group>"; };
 		273E005F1B5E3B750017D6C7 /* HXDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXDropdownMenu.m; sourceTree = "<group>"; };
 		273E00611B5E4D6E0017D6C7 /* HomeMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMenuController.h; sourceTree = "<group>"; };
@@ -133,12 +141,21 @@
 		275059511BB307F9004D9037 /* HXComposeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXComposeToolbar.m; sourceTree = "<group>"; };
 		275059531BB3BF8F004D9037 /* HXComposePhotpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXComposePhotpView.h; sourceTree = "<group>"; };
 		275059541BB3BF8F004D9037 /* HXComposePhotpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXComposePhotpView.m; sourceTree = "<group>"; };
+		275059561BB68A3D004D9037 /* HXEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotionKeyboard.h; sourceTree = "<group>"; };
+		275059571BB68A3D004D9037 /* HXEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionKeyboard.m; sourceTree = "<group>"; };
+		275059591BB68BBA004D9037 /* HXEmotionTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotionTabBar.h; sourceTree = "<group>"; };
+		2750595A1BB68BBA004D9037 /* HXEmotionTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionTabBar.m; sourceTree = "<group>"; };
+		2750595C1BB68CA4004D9037 /* HXEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotionListView.h; sourceTree = "<group>"; };
+		2750595D1BB68CA4004D9037 /* HXEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionListView.m; sourceTree = "<group>"; };
 		2761CC2A1B5D159600124EC7 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		2761CC2B1B5D159600124EC7 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		2761CC2C1B5D159600124EC7 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		2761CC2D1B5D159600124EC7 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		2761CC301B5D15E500124EC7 /* SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBar.h; sourceTree = "<group>"; };
 		2761CC311B5D15E500124EC7 /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
+		276200441BB7E52F00662498 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
+		276200461BB7ECC900662498 /* HXEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotion.h; sourceTree = "<group>"; };
+		276200471BB7ECC900662498 /* HXEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotion.m; sourceTree = "<group>"; };
 		2775DCA91BAA528C00C6B6DF /* NSDate+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extention.h"; sourceTree = "<group>"; };
 		2775DCAA1BAA528C00C6B6DF /* NSDate+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extention.m"; sourceTree = "<group>"; };
 		2775DCAC1BAA63CC00C6B6DF /* NSString+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extention.h"; sourceTree = "<group>"; };
@@ -342,6 +359,14 @@
 				275059511BB307F9004D9037 /* HXComposeToolbar.m */,
 				275059531BB3BF8F004D9037 /* HXComposePhotpView.h */,
 				275059541BB3BF8F004D9037 /* HXComposePhotpView.m */,
+				275059561BB68A3D004D9037 /* HXEmotionKeyboard.h */,
+				275059571BB68A3D004D9037 /* HXEmotionKeyboard.m */,
+				275059591BB68BBA004D9037 /* HXEmotionTabBar.h */,
+				2750595A1BB68BBA004D9037 /* HXEmotionTabBar.m */,
+				270C7E551BB6ED160045B5D5 /* HXEmotionTabBarButton.h */,
+				270C7E561BB6ED160045B5D5 /* HXEmotionTabBarButton.m */,
+				2750595C1BB68CA4004D9037 /* HXEmotionListView.h */,
+				2750595D1BB68CA4004D9037 /* HXEmotionListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +374,8 @@
 		2750594C1BB3015D004D9037 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				276200461BB7ECC900662498 /* HXEmotion.h */,
+				276200471BB7ECC900662498 /* HXEmotion.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -553,6 +580,7 @@
 		27DB551A1B59714600312D82 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				276200441BB7E52F00662498 /* EmotionIcons */,
 				27DB551B1B59714600312D82 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -735,6 +763,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				276200451BB7E52F00662498 /* EmotionIcons in Resources */,
 				27DB552B1B59714600312D82 /* LaunchScreen.xib in Resources */,
 				27A919C21B95D88500D047EE /* LodeMoreFooter.xib in Resources */,
 				27DB55281B59714600312D82 /* Images.xcassets in Resources */,
@@ -778,9 +807,11 @@
 				27BF0ADF1B7E19D700980C4E /* HomeTableViewController.m in Sources */,
 				273E00631B5E4D6E0017D6C7 /* HomeMenuController.m in Sources */,
 				27A64DFE1B7C4C1B000E5920 /* MBProgressHUD.m in Sources */,
+				2750595E1BB68CA4004D9037 /* HXEmotionListView.m in Sources */,
 				27EFED7C1B7F7784008DB7ED /* UIImage+GIF.m in Sources */,
 				27EFED7A1B7F7784008DB7ED /* SDWebImagePrefetcher.m in Sources */,
 				270C74A91B665BFD008FCB15 /* AFHTTPSessionManager.m in Sources */,
+				2750595B1BB68BBA004D9037 /* HXEmotionTabBar.m in Sources */,
 				27DB554E1B59728C00312D82 /* DiscoverTableViewController.m in Sources */,
 				27A64DF31B7C3BD0000E5920 /* Account.m in Sources */,
 				27EFED751B7F7784008DB7ED /* SDWebImageCompat.m in Sources */,
@@ -791,6 +822,7 @@
 				27EFED761B7F7784008DB7ED /* SDWebImageDecoder.m in Sources */,
 				279C75921BA6972100B53BC2 /* statusPhotoModle.m in Sources */,
 				27EFED791B7F7784008DB7ED /* SDWebImageManager.m in Sources */,
+				270C7E571BB6ED160045B5D5 /* HXEmotionTabBarButton.m in Sources */,
 				2761CC321B5D15E500124EC7 /* SearchBar.m in Sources */,
 				2775DCAB1BAA528C00C6B6DF /* NSDate+Extention.m in Sources */,
 				270C74AA1B665BFD008FCB15 /* AFNetworkReachabilityManager.m in Sources */,
@@ -818,6 +850,7 @@
 				27F830431BB04EA800D473CA /* HXTextView.m in Sources */,
 				27A919BD1B958DCF00D047EE /* NSString+MJExtension.m in Sources */,
 				27BF0AE51B7E1A6900980C4E /* HXTitleButton.m in Sources */,
+				276200481BB7ECC900662498 /* HXEmotion.m in Sources */,
 				27EFED7E1B7F7784008DB7ED /* UIImage+WebP.m in Sources */,
 				27A919C81B96F5C700D047EE /* statusFrame.m in Sources */,
 				27FB4B301B5A20A500C446FF /* WBTabBarViewController.m in Sources */,
@@ -826,6 +859,7 @@
 				27A919B61B958DCF00D047EE /* MJProperty.m in Sources */,
 				2775DCB11BAA77B400C6B6DF /* HXStatusPhotosView.m in Sources */,
 				270C74A81B665BFD008FCB15 /* AFHTTPRequestOperationManager.m in Sources */,
+				275059581BB68A3D004D9037 /* HXEmotionKeyboard.m in Sources */,
 				270C74AB1B665BFD008FCB15 /* AFSecurityPolicy.m in Sources */,
 				27DB55441B59718800312D82 /* AppDelegate.m in Sources */,
 				27EFED741B7F7784008DB7ED /* SDImageCache.m in Sources */,

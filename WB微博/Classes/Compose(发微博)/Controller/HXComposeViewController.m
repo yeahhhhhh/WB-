@@ -16,6 +16,7 @@
 #import "UIView+Extension.h"
 #import "HXComposeToolbar.h"//添加键盘上方的工具条
 #import "HXComposePhotpView.h"
+#import "HXEmotionKeyboard.h"//添加表情键盘
 
 @interface HXComposeViewController ()<UITextViewDelegate,HXComposeToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 /** 输入控件 */
@@ -24,11 +25,25 @@
 @property (nonatomic, weak) HXComposeToolbar *toolbar;
 /** 相册 （存放拍照或者相册选取的图片）*/
 @property (nonatomic, weak) HXComposePhotpView *photosView;
-
+/**表情键盘*/
+@property (nonatomic, strong) HXEmotionKeyboard *emotionKeyboard;
+/** 是否正在切换键盘*/
+@property (nonatomic, assign) BOOL *switchingKeyboard;
 @end
 
-
 @implementation HXComposeViewController
+
+#pragma mark - 懒加载
+- (HXEmotionKeyboard *)emotionKeyboard
+{
+    if (!_emotionKeyboard)
+    {
+        self.emotionKeyboard =  [[HXEmotionKeyboard alloc]init];
+        self.emotionKeyboard.width = self.view.width;
+        self.emotionKeyboard.height = 260;
+    }
+    return _emotionKeyboard;
+}
 #pragma mark - 系统方法
 - (void)viewDidLoad
 {
@@ -221,7 +236,9 @@
  */
 - (void)kayboardWillChangeFrame:(NSNotification *)notification
 {
-//    NSLog(@"%@",notification);
+    if (self.switchingKeyboard) return;
+    
+    NSLog(@"kayboardWillChangeFrame");
     /**
      *  userInfo = { 
      //键盘弹出后的frame
@@ -230,9 +247,8 @@
      UIKeyboardAnimationDurationUserInfoKey = 0.25,
      //键盘弹出\隐藏的节奏（匀速，先快后慢）
      UIKeyboardAnimationCurveUserInfoKey = 7
-     *
-     *  @return <#return value description#>
      */
+    
     NSDictionary *userInfo = notification.userInfo;
     //动画持续时间
     double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -243,19 +259,20 @@
         //键盘的y值 keyboardF.origin.y
         self.toolbar.y = keyboardF.origin.y - self.toolbar.height;
     }];
-//    NSLog(@"%@",NSStringFromCGRect(self.toolbar.frame));
 }
 
-
+/**
+ *  取消
+ */
 - (void)cancel {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)send {
-    
-    if (self.photosView.photos.count) {
+    //发送
+    if (self.photosView.photos.count) {//如果 发送的微博有图片
         [self sendWithimage];
-    }else{
+    }else{//如果 发送的微博没有图片
         [self sendWithNoimage];
     }
     
@@ -353,12 +370,27 @@
             break;
 
         case HXComposeToolbarButtonTypeEmotion://表情
-            NSLog(@"表情");
+            [self switchKayboard];
             break;
 
         default:
             break;
     }
+}
+
+
+
+#pragma mark -UIImagePickerControllerDelegate
+/**
+ *  从UIImagePickerController选择完图片就调用（拍照完毕或者选择相册图片完毕）
+ */
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    // 添加图片到photosView 中
+    [self.photosView addPhoto:image];
+    
 }
 
 
@@ -380,24 +412,38 @@
         UIImagePickerController *ipc = [[UIImagePickerController alloc]init];
         ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;//数据来源是照相机
         [self presentViewController:ipc animated:YES completion:nil];
-        ipc.delegate = self; 
+        ipc.delegate = self;
     }
 }
-
-#pragma mark -UIImagePickerControllerDelegate
-/**
- *  从UIImagePickerController选择完图片就调用（拍照完毕或者选择相册图片完毕）
- */
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (void)switchKayboard
 {
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
-    // 添加图片到photosView 中
-    [self.photosView addPhoto:image];
+    if (self.textView.inputView == nil)//切换自定义键盘
+    {
+        
+        self.textView.inputView = self.emotionKeyboard;
+        //在HXComposeToolbar 中的showEmotionbutton判断是否要更改图片
+        self.toolbar.showEmotionbutton = YES;
+        
+    }
+    else//切换系统自带键盘
+    {
+        self.toolbar.showEmotionbutton = NO;
+        self.textView.inputView = nil;//为空时 就自动 切换为系统自带键盘
+    }
+    self.switchingKeyboard = YES;
+    //退出键盘
+    [self.textView endEditing:YES];
+    
+    //也可以将它放在全局队列 开启新线程 [self.textView becomeFirstResponder];有延迟效果
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.textView becomeFirstResponder];
+        
+        self.switchingKeyboard = NO;
+        
+    });
+    
     
 }
-
-
 
 
 

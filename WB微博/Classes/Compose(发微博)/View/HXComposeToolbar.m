@@ -8,6 +8,9 @@
 
 #import "HXComposeToolbar.h"
 #import "UIView+Extension.h"
+@interface HXComposeToolbar()
+@property (nonatomic, weak) UIButton *button;
+@end
 @implementation HXComposeToolbar
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -23,14 +26,14 @@
         
         [self setupBtn:@"compose_trendbutton_background" highImage:@"compose_trendbutton_background_highlighted" type:HXComposeToolbarButtonTypeTrend];
         
-        [self setupBtn:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted" type:HXComposeToolbarButtonTypeEmotion];
+        self.button = [self setupBtn:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted" type:HXComposeToolbarButtonTypeEmotion];
     }
     return self;
 }
 /**
  * 创建一个按钮
  */
-- (void)setupBtn:(NSString *)image highImage:(NSString *)highImage type:(HXComposeToolbarButtonType)type
+- (UIButton *)setupBtn:(NSString *)image highImage:(NSString *)highImage type:(HXComposeToolbarButtonType)type
 {
     UIButton *btn = [[UIButton alloc]init];
     [btn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
@@ -38,6 +41,7 @@
     btn.tag = type;
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
+    return btn;
     
 }
 - (void)btnClick:(UIButton *)btn
@@ -45,6 +49,18 @@
     if ([self.delegate respondsToSelector:@selector(composeToolbar:didClickButton:)]) {
         //NSUInteger index = (NSUInteger)btn.x / btn.width;
         [self.delegate composeToolbar:self didClickButton:btn.tag];
+    }
+}
+
+- (void)setShowEmotionbutton:(BOOL)showEmotionbutton
+{
+    _showEmotionbutton = showEmotionbutton;
+    if (self.showEmotionbutton) {
+        [self.button setImage:[UIImage imageNamed:@"compose_keyboardbutton_background"] forState:UIControlStateNormal];
+        [self.button setImage:[UIImage imageNamed:@"compose_keyboardbutton_background_highlighted"] forState:UIControlStateHighlighted];
+    }else{
+        [self.button setImage:[UIImage imageNamed:@"compose_emoticonbutton_background"] forState:UIControlStateNormal];
+        [self.button setImage:[UIImage imageNamed:@"compose_emoticonbutton_background_highlighted"] forState:UIControlStateHighlighted];
     }
 }
 - (void)layoutSubviews

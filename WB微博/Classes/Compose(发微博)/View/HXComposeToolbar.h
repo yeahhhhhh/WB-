@@ -23,5 +23,6 @@ typedef enum {
 @end
 @interface HXComposeToolbar : UIView
 @property (nonatomic, weak) id<HXComposeToolbarDelegate> delegate;
+@property (nonatomic, assign) BOOL showEmotionbutton;
 
 @end
