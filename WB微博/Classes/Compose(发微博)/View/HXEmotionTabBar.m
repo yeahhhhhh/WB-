@@ -10,8 +10,6 @@
 #import "HXEmotionTabBarButton.h"//导入这个文件点目的就是去除按钮的高亮操作
 @interface HXEmotionTabBar()
 
-/** 里面存放所有的按钮 */
-
 
 @property (nonatomic, weak) HXEmotionTabBarButton *selectBut;
 @end
@@ -25,10 +23,7 @@
         //self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_card_bottom_background"]];
         
         [self setuptitle:@"最近" buttonType:HXEmotionTabBarButtonTypeRecent];
-        
-        
-        [self btnClick:[self setuptitle:@"默认" buttonType:HXEmotionTabBarButtonTypeDefault] ];//设置键盘默认显示
-        
+        [self  setuptitle:@"默认" buttonType:HXEmotionTabBarButtonTypeDefault ];//设置键盘默认显示
         [self setuptitle:@"Emoji" buttonType:HXEmotionTabBarButtonTypeEmoji];
         [self setuptitle:@"浪小花" buttonType:HXEmotionTabBarButtonTypeLxh];
     }
@@ -80,17 +75,26 @@
         btn.height = self.height;
     }
 }
+- (void)setDelegate:(id<HXEmotionTabBarDelegate>)delegate
+{
+    _delegate = delegate;
+    [self btnClick:(HXEmotionTabBarButton *)[self viewWithTag:HXEmotionTabBarButtonTypeDefault]];
+}
 - (void)btnClick:(HXEmotionTabBarButton *)Btn
 {
     self.selectBut.enabled = YES;
     Btn.enabled = NO;
     self.selectBut = Btn;
     //通知代理
-    if ([self.delegate respondsToSelector:@selector(emotionTabBar:dudSelectButton:)]) {
-        [self.delegate emotionTabBar:self dudSelectButton:Btn.tag];
+    if ([self.delegate respondsToSelector:@selector(emotionTabBar:didSelectButton:)]) {
+        [self.delegate emotionTabBar:self didSelectButton:Btn.tag];
+        NSLog(@"代理%ld",(long)Btn.tag);
+        
+         
     }
     
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

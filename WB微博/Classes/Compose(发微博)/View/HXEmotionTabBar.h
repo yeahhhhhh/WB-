@@ -20,7 +20,7 @@ typedef enum {
 @protocol HXEmotionTabBarDelegate<NSObject>
 
 @optional
-- (void)emotionTabBar:(HXEmotionTabBar *)tabBar dudSelectButton:(HXEmotionTabBarButtonType)buttonType;
+- (void)emotionTabBar:(HXEmotionTabBar *)tabBar didSelectButton:(HXEmotionTabBarButtonType)buttonType;
 
 @end
 @interface HXEmotionTabBar : UIView

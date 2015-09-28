@@ -12,28 +12,83 @@
 #import "HXEmotion.h"//添加模型类
 #import "MJExtension.h"//转模型类
 @interface HXEmotionKeyboard()<HXEmotionTabBarDelegate>
+/** 将现实表情内容的空件添加到 contentView*/
+@property (nonatomic, strong) UIView *contentView;
 /** 表情内容 */
-@property (nonatomic, weak) HXEmotionListView *listView;
+@property (nonatomic, strong) HXEmotionListView *contentlistView;
+@property (nonatomic, strong) HXEmotionListView *defaultlistView;
+@property (nonatomic, strong) HXEmotionListView *emojilistView;
+@property (nonatomic, strong) HXEmotionListView *lxhlistView;
 /** TabBar*/
 @property (nonatomic, weak) HXEmotionTabBar *tabBar;
 @end
 
 @implementation HXEmotionKeyboard
+#pragma mark - 懒加载
+- (HXEmotionListView *)contentlistView
+{
+    if (!_contentlistView)
+    {
+        self.contentlistView = [[HXEmotionListView alloc]init];
+        self.contentlistView.backgroundColor = [UIColor yellowColor];
+    }
+    return _contentlistView;
+}
+- (HXEmotionListView *)defaultlistView
+{
+    if (!_defaultlistView)
+    {
+        NSLog(@"laiduaoz");
+        self.defaultlistView = [[HXEmotionListView alloc]init];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
+        NSArray *defaultEmotions = [NSArray arrayWithContentsOfFile:path];
+        
+        self.defaultlistView.emotions = [HXEmotion objectArrayWithKeyValuesArray:defaultEmotions];
+        NSLog(@"%@",self.defaultlistView.emotions);
+        self.defaultlistView.backgroundColor = [UIColor yellowColor];
+    }
+    return _defaultlistView;
+}
+- (HXEmotionListView *)emojilistView
+{
+    if (!_emojilistView)
+    {
+        
+        self.emojilistView = [[HXEmotionListView alloc]init];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
+        NSArray *emojiEmotions = [NSArray arrayWithContentsOfFile:path];
+        self.emojilistView.emotions = [HXEmotion objectArrayWithKeyValuesArray:emojiEmotions];
+        self.emojilistView.backgroundColor = [UIColor blueColor];
+    }
+    return _emojilistView;
+}
+- (HXEmotionListView *)lxhlistView
+{
+    if (!_lxhlistView)
+    {
+        self.lxhlistView = [[HXEmotionListView alloc]init];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
+        NSArray *lxhEmotions = [NSArray arrayWithContentsOfFile:path];
+        self.lxhlistView.emotions = [HXEmotion objectArrayWithKeyValuesArray:lxhEmotions];
+       self.lxhlistView.backgroundColor = [UIColor orangeColor];
+    }
+    return _lxhlistView;
+}
+#pragma mark - 初始化
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // 表情内容
-        HXEmotionListView *listView = [[HXEmotionListView alloc]init];
-        self.listView = listView;
-        listView.backgroundColor = [UIColor redColor];
+        UIView *contentView = [[UIView alloc]init];
+        self.contentView = contentView;
         
         // TabBar
         HXEmotionTabBar *tabBar = [[HXEmotionTabBar alloc]init];
         self.tabBar = tabBar;
         tabBar.delegate = self;
         
-        [self addSubview:listView];
+        [self addSubview:contentView];
         [self addSubview:tabBar];
     }
     return self;
@@ -49,48 +104,41 @@
     self.tabBar.y = self.height - self.tabBar.height;
     
     //表情内容
-    self.listView.width = self.width;
-    self.listView.height = self.height - self.tabBar.height;
-    self.listView.x = 0;
-    self.listView.y = 0;
+    self.contentView.width = self.width;
+    self.contentView.height = self.height - self.tabBar.height;
+    self.contentView.x = 0;
+    self.contentView.y = 0;
 }
 
 #pragma mark HXEmotionTabBarDelegate
 
-- (void)emotionTabBar:(HXEmotionTabBar *)tabBar dudSelectButton:(HXEmotionTabBarButtonType)buttonType
+- (void)emotionTabBar:(HXEmotionTabBar *)tabBar didSelectButton:(HXEmotionTabBarButtonType)buttonType
 {
+    //移除contentView所有子空件
+    [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     switch (buttonType) {
         case HXEmotionTabBarButtonTypeRecent: {// 最近
-        
-            
-                break;
+            [self.contentView addSubview:self.contentlistView];
+            break;
         }
             
         case HXEmotionTabBarButtonTypeDefault:{ // 默认
             
-            NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
-            NSArray *defaultEmotions = [NSArray arrayWithContentsOfFile:path];
-            self.listView.emotions = [HXEmotion objectArrayWithKeyValuesArray:defaultEmotions];
-            
+            [self.contentView addSubview:self.defaultlistView];
             break;
         }
         case HXEmotionTabBarButtonTypeEmoji: {// Emoji
-            NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
-            NSArray *emojiEmotions = [NSArray arrayWithContentsOfFile:path];
-            self.listView.emotions = [HXEmotion objectArrayWithKeyValuesArray:emojiEmotions];
-            NSLog(@"%@",emojiEmotions);
+            [self.contentView addSubview:self.emojilistView];
             break;
         }
             
         case HXEmotionTabBarButtonTypeLxh: {// Lxh
-            
-            NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
-            NSArray *lxhEmotions = [NSArray arrayWithContentsOfFile:path];
-            self.listView.emotions = [HXEmotion objectArrayWithKeyValuesArray:lxhEmotions];
-            NSLog(@"%@",lxhEmotions);
+            [self.contentView addSubview:self.lxhlistView];
              break;
         }
     }
+    UIView *child = [self.contentView.subviews firstObject];
+    child.frame = self.contentView.bounds;
 }
 
 @end

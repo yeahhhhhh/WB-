@@ -47,7 +47,6 @@
 - (void)btnClick:(UIButton *)btn
 {
     if ([self.delegate respondsToSelector:@selector(composeToolbar:didClickButton:)]) {
-        //NSUInteger index = (NSUInteger)btn.x / btn.width;
         [self.delegate composeToolbar:self didClickButton:btn.tag];
     }
 }
