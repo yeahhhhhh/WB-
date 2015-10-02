@@ -17,6 +17,9 @@
 #import "HXComposeToolbar.h"//添加键盘上方的工具条
 #import "HXComposePhotpView.h"
 #import "HXEmotionKeyboard.h"//添加表情键盘
+#import "HXEmotion.h"//模型
+#import "NSString+Emoji.h"//转图片emoji
+#import "HXTextAttachment.h"//自定义模型
 
 @interface HXComposeViewController ()<UITextViewDelegate,HXComposeToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 /** 输入控件 */
@@ -40,7 +43,7 @@
     {
         self.emotionKeyboard =  [[HXEmotionKeyboard alloc]init];
         self.emotionKeyboard.width = self.view.width;
-        self.emotionKeyboard.height = 260;
+        self.emotionKeyboard.height = 216;
     }
     return _emotionKeyboard;
 }
@@ -180,6 +183,7 @@
  */
 - (void)setupTextView
 {
+    //HXEmotionDidSlectNotification
     // 在这个控制器中，textView的contentInset.top默认会等于64
     HXTextView *textView = [[HXTextView alloc] init];
     textView.frame = self.view.bounds;
@@ -197,6 +201,12 @@
     
     // 监听键盘退下通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kayboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    // 监听选择表情通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSlect:) name:@"HXEmotionDidSlectNotification"  object:nil];
+    //监听表情删除通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(emotionDidDelete) name:@"HXEmotionDidDeleteNotification" object:nil];
+    
     
 //    //键盘的frame 发生改变时发出通知（位置和尺寸）
 //    UIKeyboardWillChangeFrameNotification;
@@ -237,8 +247,6 @@
 - (void)kayboardWillChangeFrame:(NSNotification *)notification
 {
     if (self.switchingKeyboard) return;
-    
-    NSLog(@"kayboardWillChangeFrame");
     /**
      *  userInfo = { 
      //键盘弹出后的frame
@@ -290,7 +298,7 @@
     // 2.拼接请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [AccountTool account].access_token;
-    params[@"status"] = self.textView.text;
+    params[@"status"] = [self fullText];
     // 3.发送图片
     /**	access_token true string*/
     [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -324,8 +332,9 @@
     // 2.拼接请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [AccountTool account].access_token;
-    params[@"status"] = self.textView.text;
+    params[@"status"] = [self fullText] ;
     
+    NSLog(@"%@",params);
     // 3.发送文字
     [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         
@@ -347,6 +356,73 @@
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
     [self.view endEditing:YES];//键盘退下
+}
+/**
+ *  表情被选中，要显示到文本框内
+ */
+- (void)emotionDidSlect:(NSNotification *)notification
+{
+    //取出模型
+     HXEmotion *emotion = notification.userInfo[@"selectEmotion"] ;
+  if (emotion.code){
+        [self.textView insertText:emotion.code.emoji];
+    }else if (emotion.png){
+        
+        NSMutableAttributedString *newText = [[NSMutableAttributedString alloc]init];
+        //拼接之前的文字（图片和普通微文字）
+        [newText appendAttributedString:self.textView.attributedText];
+        //加载图片
+        HXTextAttachment *attch = [[HXTextAttachment alloc]init];
+        
+        attch.emotion = emotion;
+        
+        //设置图片大小等于字体的行高
+        CGFloat attchWH = self.textView.font.lineHeight;
+        attch.bounds = CGRectMake(0, -3, attchWH, attchWH);//－3 将它往下偏一点
+        
+        //根据附件创建一个属性文字
+        NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:attch];
+        //在光标处添加表情 self.textView.selectedRange.location获得光标所在位置
+        NSUInteger loc = self.textView.selectedRange.location;
+        [newText insertAttributedString:imageStr atIndex:loc];
+        
+        //设置字体
+        [newText addAttribute:NSFontAttributeName value:self.textView.font range:NSMakeRange(0, newText.length)] ;
+        self.textView.attributedText = newText;
+        //移动光标到表情的后面
+        self.textView.selectedRange = NSMakeRange(loc + 1, 0);
+    }
+    
+    
+}
+- (NSString *)fullText
+{
+    NSMutableString *fullText = [NSMutableString string];
+    //遍历所有的文字（图片、emoji、普通文字）
+    [self.textView.attributedText enumerateAttributesInRange:NSMakeRange(0, self.textView.attributedText.length) options:0 usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
+        //判断 如果是图片表情
+    
+        HXTextAttachment *attac = attrs[@"NSAttachment" ];
+        if (attac) {// 如果有值就是图片
+            [fullText appendFormat:attac.emotion.chs];
+        }else{//没有值就是emoji或纯文本
+            //获得各个范围内的文字
+            NSAttributedString *str = [self.textView.attributedText attributedSubstringFromRange:range];
+            [fullText appendFormat:str.string];
+            
+        }
+        
+    }];
+    return fullText;
+
+}
+/**
+ *  表情删除按钮
+ */
+- (void)emotionDidDelete
+{
+    //往回删
+    [self.textView deleteBackward];
 }
 #pragma mark - HXComposeToolbarDelegate
 - (void)composeToolbar:(HXComposeToolbar *)toolbar didClickButton:(HXComposeToolbarButtonType)buttonType
@@ -434,11 +510,13 @@
     //退出键盘
     [self.textView endEditing:YES];
     
+    self.switchingKeyboard = NO;
     //也可以将它放在全局队列 开启新线程 [self.textView becomeFirstResponder];有延迟效果
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.textView becomeFirstResponder];
         
-        self.switchingKeyboard = NO;
+        [self.textView becomeFirstResponder];
+        //结束切换键盘
+        
         
     });
     

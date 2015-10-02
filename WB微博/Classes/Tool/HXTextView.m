@@ -46,7 +46,7 @@
     [self setNeedsDisplay];
 }
 - (void)drawRect:(CGRect)rect {
-    if (!self.hasText) {//判断 是否有内容
+    if (!self.hasText) {//判断 是否有内容 没有内容
         NSMutableDictionary *dic = [NSMutableDictionary dictionary ];
         dic[NSFontAttributeName] = self.font;
         dic[NSForegroundColorAttributeName] = self.placehoderColor;
@@ -60,5 +60,9 @@
     }
    
 }
-
+- (void)setAttributedText:(NSAttributedString *)attributedText
+{
+    [super setAttributedText:attributedText];
+    [self setNeedsDisplay];
+}
 @end

@@ -71,8 +71,6 @@
 //            shareBut.contentEdgeInsets = UIEdgeInsetsMake(30, 0, 0, 0);
 //            shareBut.imageEdgeInsets =UIEdgeInsetsMake(0, 0, 0, 0);
             shareBut.titleEdgeInsets =UIEdgeInsetsMake(0, 10, 0, 0);//设置  shareBut 到图片与文字之间的距离 UIEdgeInsetsMake（上 左 下 右）
-            
-            
         }
     }
     
@@ -91,7 +89,6 @@
     //pageControl.userInteractionEnabled = NO;//
     pageControl.centerX = scrollView.width * 0.5 - 50;
     pageControl.centerY = 500;
-
     pageControl.width = 100;
 //    pageControl.height = 60; //可以不设置他的宽高
 
@@ -111,6 +108,7 @@
     window.rootViewController = tabbarVC;
     
 }
+#pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     //NSLog(@"%@",NSStringFromCGPoint(scrollView.contentOffset));
@@ -118,14 +116,7 @@
     self.pageControl.currentPage = (int) (page + 0.5);//设置四舍五入计算页码
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 
 @end

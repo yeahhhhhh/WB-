@@ -13,7 +13,7 @@
 #import "MJExtension.h"//转模型类
 @interface HXEmotionKeyboard()<HXEmotionTabBarDelegate>
 /** 将现实表情内容的空件添加到 contentView*/
-@property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, weak) UIView *contentView;
 /** 表情内容 */
 @property (nonatomic, strong) HXEmotionListView *contentlistView;
 @property (nonatomic, strong) HXEmotionListView *defaultlistView;
@@ -30,7 +30,6 @@
     if (!_contentlistView)
     {
         self.contentlistView = [[HXEmotionListView alloc]init];
-        self.contentlistView.backgroundColor = [UIColor yellowColor];
     }
     return _contentlistView;
 }
@@ -38,14 +37,11 @@
 {
     if (!_defaultlistView)
     {
-        NSLog(@"laiduaoz");
         self.defaultlistView = [[HXEmotionListView alloc]init];
         NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
         NSArray *defaultEmotions = [NSArray arrayWithContentsOfFile:path];
         
         self.defaultlistView.emotions = [HXEmotion objectArrayWithKeyValuesArray:defaultEmotions];
-        NSLog(@"%@",self.defaultlistView.emotions);
-        self.defaultlistView.backgroundColor = [UIColor yellowColor];
     }
     return _defaultlistView;
 }
@@ -58,7 +54,6 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
         NSArray *emojiEmotions = [NSArray arrayWithContentsOfFile:path];
         self.emojilistView.emotions = [HXEmotion objectArrayWithKeyValuesArray:emojiEmotions];
-        self.emojilistView.backgroundColor = [UIColor blueColor];
     }
     return _emojilistView;
 }
@@ -70,7 +65,6 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
         NSArray *lxhEmotions = [NSArray arrayWithContentsOfFile:path];
         self.lxhlistView.emotions = [HXEmotion objectArrayWithKeyValuesArray:lxhEmotions];
-       self.lxhlistView.backgroundColor = [UIColor orangeColor];
     }
     return _lxhlistView;
 }
@@ -79,6 +73,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         // 表情内容
         UIView *contentView = [[UIView alloc]init];
         self.contentView = contentView;

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		27010F051B662C7600983A1E /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27010F041B662C7600983A1E /* OAuthViewController.m */; };
+		27028B291BBABEB900BF107D /* HXEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27028B281BBABEB900BF107D /* HXEmotionPopView.m */; };
+		27028B2B1BBABEE000BF107D /* HXEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27028B2A1BBABEE000BF107D /* HXEmotionPopView.xib */; };
+		27028B2E1BBACDC700BF107D /* HXEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27028B2D1BBACDC700BF107D /* HXEmotionButton.m */; };
+		27028B311BBD776900BF107D /* HXTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 27028B301BBD776900BF107D /* HXTextAttachment.m */; };
 		270C74A71B665BFD008FCB15 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 270C74951B665BFD008FCB15 /* AFHTTPRequestOperation.m */; };
 		270C74A81B665BFD008FCB15 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 270C74971B665BFD008FCB15 /* AFHTTPRequestOperationManager.m */; };
 		270C74A91B665BFD008FCB15 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 270C74991B665BFD008FCB15 /* AFHTTPSessionManager.m */; };
@@ -32,12 +36,14 @@
 		2761CC321B5D15E500124EC7 /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC311B5D15E500124EC7 /* SearchBar.m */; };
 		276200451BB7E52F00662498 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 276200441BB7E52F00662498 /* EmotionIcons */; };
 		276200481BB7ECC900662498 /* HXEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 276200471BB7ECC900662498 /* HXEmotion.m */; };
+		2762004B1BB9806F00662498 /* HXEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2762004A1BB9806F00662498 /* HXEmotionPageView.m */; };
 		2775DCAB1BAA528C00C6B6DF /* NSDate+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2775DCAA1BAA528C00C6B6DF /* NSDate+Extention.m */; };
 		2775DCAE1BAA63CC00C6B6DF /* NSString+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2775DCAD1BAA63CC00C6B6DF /* NSString+Extention.m */; };
 		2775DCB11BAA77B400C6B6DF /* HXStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2775DCB01BAA77B400C6B6DF /* HXStatusPhotosView.m */; };
 		2775DCB41BABA35E00C6B6DF /* HXStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2775DCB31BABA35E00C6B6DF /* HXStatusPhotoView.m */; };
 		279C75921BA6972100B53BC2 /* statusPhotoModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 279C75911BA6972100B53BC2 /* statusPhotoModle.m */; };
 		279C75951BA7EE7B00B53BC2 /* HXStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 279C75941BA7EE7B00B53BC2 /* HXStatusToolBar.m */; };
+		27A045351BB9954F00B3EBE6 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A045341BB9954F00B3EBE6 /* NSString+Emoji.m */; };
 		27A64DF31B7C3BD0000E5920 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A64DF21B7C3BD0000E5920 /* Account.m */; };
 		27A64DFC1B7C4C1B000E5920 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A64DF81B7C4C1B000E5920 /* MBProgressHUD+MJ.m */; };
 		27A64DFD1B7C4C1B000E5920 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27A64DF91B7C4C1B000E5920 /* MBProgressHUD.bundle */; };
@@ -108,6 +114,13 @@
 /* Begin PBXFileReference section */
 		27010F031B662C7600983A1E /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
 		27010F041B662C7600983A1E /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
+		27028B271BBABEB900BF107D /* HXEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotionPopView.h; sourceTree = "<group>"; };
+		27028B281BBABEB900BF107D /* HXEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionPopView.m; sourceTree = "<group>"; };
+		27028B2A1BBABEE000BF107D /* HXEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXEmotionPopView.xib; sourceTree = "<group>"; };
+		27028B2C1BBACDC700BF107D /* HXEmotionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotionButton.h; sourceTree = "<group>"; };
+		27028B2D1BBACDC700BF107D /* HXEmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionButton.m; sourceTree = "<group>"; };
+		27028B2F1BBD776900BF107D /* HXTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXTextAttachment.h; sourceTree = "<group>"; };
+		27028B301BBD776900BF107D /* HXTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXTextAttachment.m; sourceTree = "<group>"; };
 		270C74941B665BFD008FCB15 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		270C74951B665BFD008FCB15 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		270C74961B665BFD008FCB15 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -156,6 +169,8 @@
 		276200441BB7E52F00662498 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
 		276200461BB7ECC900662498 /* HXEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotion.h; sourceTree = "<group>"; };
 		276200471BB7ECC900662498 /* HXEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotion.m; sourceTree = "<group>"; };
+		276200491BB9806F00662498 /* HXEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotionPageView.h; sourceTree = "<group>"; };
+		2762004A1BB9806F00662498 /* HXEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionPageView.m; sourceTree = "<group>"; };
 		2775DCA91BAA528C00C6B6DF /* NSDate+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extention.h"; sourceTree = "<group>"; };
 		2775DCAA1BAA528C00C6B6DF /* NSDate+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extention.m"; sourceTree = "<group>"; };
 		2775DCAC1BAA63CC00C6B6DF /* NSString+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extention.h"; sourceTree = "<group>"; };
@@ -168,6 +183,8 @@
 		279C75911BA6972100B53BC2 /* statusPhotoModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = statusPhotoModle.m; sourceTree = "<group>"; };
 		279C75931BA7EE7B00B53BC2 /* HXStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXStatusToolBar.h; sourceTree = "<group>"; };
 		279C75941BA7EE7B00B53BC2 /* HXStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXStatusToolBar.m; sourceTree = "<group>"; };
+		27A045331BB9954F00B3EBE6 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		27A045341BB9954F00B3EBE6 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		27A64DF11B7C3BD0000E5920 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		27A64DF21B7C3BD0000E5920 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		27A64DF71B7C4C1B000E5920 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
@@ -367,6 +384,13 @@
 				270C7E561BB6ED160045B5D5 /* HXEmotionTabBarButton.m */,
 				2750595C1BB68CA4004D9037 /* HXEmotionListView.h */,
 				2750595D1BB68CA4004D9037 /* HXEmotionListView.m */,
+				276200491BB9806F00662498 /* HXEmotionPageView.h */,
+				2762004A1BB9806F00662498 /* HXEmotionPageView.m */,
+				27028B271BBABEB900BF107D /* HXEmotionPopView.h */,
+				27028B281BBABEB900BF107D /* HXEmotionPopView.m */,
+				27028B2A1BBABEE000BF107D /* HXEmotionPopView.xib */,
+				27028B2C1BBACDC700BF107D /* HXEmotionButton.h */,
+				27028B2D1BBACDC700BF107D /* HXEmotionButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -376,6 +400,8 @@
 			children = (
 				276200461BB7ECC900662498 /* HXEmotion.h */,
 				276200471BB7ECC900662498 /* HXEmotion.m */,
+				27028B2F1BBD776900BF107D /* HXTextAttachment.h */,
+				27028B301BBD776900BF107D /* HXTextAttachment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,7 +427,26 @@
 				27F830411BB04EA800D473CA /* HXTextView.h */,
 				27F830421BB04EA800D473CA /* HXTextView.m */,
 			);
-			path = Tool;
+			name = Tool;
+			path = ../Tool;
+			sourceTree = "<group>";
+		};
+		27A045311BB9954F00B3EBE6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2761CC291B5D159600124EC7 /* Tool */,
+				27A045321BB9954F00B3EBE6 /* Category */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		27A045321BB9954F00B3EBE6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				27A045331BB9954F00B3EBE6 /* NSString+Emoji.h */,
+				27A045341BB9954F00B3EBE6 /* NSString+Emoji.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		27A64DF01B7C3B84000E5920 /* Modle */ = {
@@ -606,12 +651,12 @@
 		27DB55401B59718800312D82 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				27A045311BB9954F00B3EBE6 /* Main */,
 				27F830391BAFE64D00D473CA /* Compose(发微博) */,
 				27BF0AD91B7E19D700980C4E /* Home */,
 				27A64DF51B7C4C1B000E5920 /* Lib */,
 				27010F011B662C2400983A1E /* OAuth(授权) */,
 				27B3A0521B64BF4B00FF72E1 /* NewFeature(版本新特性) */,
-				2761CC291B5D159600124EC7 /* Tool */,
 				27DB55411B59718800312D82 /* AppDelegate.h */,
 				27DB55421B59718800312D82 /* AppDelegate.m */,
 				27DB55431B59718800312D82 /* main.m */,
@@ -765,6 +810,7 @@
 			files = (
 				276200451BB7E52F00662498 /* EmotionIcons in Resources */,
 				27DB552B1B59714600312D82 /* LaunchScreen.xib in Resources */,
+				27028B2B1BBABEE000BF107D /* HXEmotionPopView.xib in Resources */,
 				27A919C21B95D88500D047EE /* LodeMoreFooter.xib in Resources */,
 				27DB55281B59714600312D82 /* Images.xcassets in Resources */,
 				27A64DFD1B7C4C1B000E5920 /* MBProgressHUD.bundle in Resources */,
@@ -802,9 +848,11 @@
 				27EFED7B1B7F7784008DB7ED /* UIButton+WebCache.m in Sources */,
 				2775DCAE1BAA63CC00C6B6DF /* NSString+Extention.m in Sources */,
 				27A919C51B96ED2700D047EE /* HXStatusCell.m in Sources */,
+				27028B311BBD776900BF107D /* HXTextAttachment.m in Sources */,
 				27A9199A1B952B1200D047EE /* statusModle(微博模型).m in Sources */,
 				27A919B71B958DCF00D047EE /* MJPropertyKey.m in Sources */,
 				27BF0ADF1B7E19D700980C4E /* HomeTableViewController.m in Sources */,
+				27028B291BBABEB900BF107D /* HXEmotionPopView.m in Sources */,
 				273E00631B5E4D6E0017D6C7 /* HomeMenuController.m in Sources */,
 				27A64DFE1B7C4C1B000E5920 /* MBProgressHUD.m in Sources */,
 				2750595E1BB68CA4004D9037 /* HXEmotionListView.m in Sources */,
@@ -820,6 +868,7 @@
 				27EFED771B7F7784008DB7ED /* SDWebImageDownloader.m in Sources */,
 				27EFED781B7F7784008DB7ED /* SDWebImageDownloaderOperation.m in Sources */,
 				27EFED761B7F7784008DB7ED /* SDWebImageDecoder.m in Sources */,
+				2762004B1BB9806F00662498 /* HXEmotionPageView.m in Sources */,
 				279C75921BA6972100B53BC2 /* statusPhotoModle.m in Sources */,
 				27EFED791B7F7784008DB7ED /* SDWebImageManager.m in Sources */,
 				270C7E571BB6ED160045B5D5 /* HXEmotionTabBarButton.m in Sources */,
@@ -830,10 +879,12 @@
 				270C74AF1B665BFD008FCB15 /* AFURLSessionManager.m in Sources */,
 				27E1DC1A1B5BA39A004387D0 /* BastNavigationViewController.m in Sources */,
 				27DB55511B59729C00312D82 /* ProfileTableViewController.m in Sources */,
+				27028B2E1BBACDC700BF107D /* HXEmotionButton.m in Sources */,
 				27EFED811B7F7784008DB7ED /* UIView+WebCacheOperation.m in Sources */,
 				27A919B91B958DCF00D047EE /* NSObject+MJClass.m in Sources */,
 				27A919B81B958DCF00D047EE /* MJPropertyType.m in Sources */,
 				270C74AC1B665BFD008FCB15 /* AFURLConnectionOperation.m in Sources */,
+				27A045351BB9954F00B3EBE6 /* NSString+Emoji.m in Sources */,
 				270C74AE1B665BFD008FCB15 /* AFURLResponseSerialization.m in Sources */,
 				273E00601B5E3B750017D6C7 /* HXDropdownMenu.m in Sources */,
 				270C74AD1B665BFD008FCB15 /* AFURLRequestSerialization.m in Sources */,

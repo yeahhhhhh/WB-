@@ -88,20 +88,8 @@
     //通知代理
     if ([self.delegate respondsToSelector:@selector(emotionTabBar:didSelectButton:)]) {
         [self.delegate emotionTabBar:self didSelectButton:Btn.tag];
-        NSLog(@"代理%ld",(long)Btn.tag);
-        
-         
     }
     
 }
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
