@@ -78,7 +78,7 @@
 - (void)setDelegate:(id<HXEmotionTabBarDelegate>)delegate
 {
     _delegate = delegate;
-    [self btnClick:(HXEmotionTabBarButton *)[self viewWithTag:HXEmotionTabBarButtonTypeDefault]];
+    [self btnClick:(HXEmotionTabBarButton *)[self viewWithTag:HXEmotionTabBarButtonTypeDefault]];                   
 }
 - (void)btnClick:(HXEmotionTabBarButton *)Btn
 {

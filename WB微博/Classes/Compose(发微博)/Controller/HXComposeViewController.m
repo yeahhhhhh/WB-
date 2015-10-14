@@ -20,6 +20,7 @@
 #import "HXEmotion.h"//模型
 #import "NSString+Emoji.h"//转图片emoji
 #import "HXTextAttachment.h"//自定义模型
+#import "HXEmotionTool.h"//存最近使用表情
 
 @interface HXComposeViewController ()<UITextViewDelegate,HXComposeToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 /** 输入控件 */
@@ -74,7 +75,7 @@
     //成为第一响应者（能输入文字的空件一旦成为第一响应者 就会叫出相应的键盘）
     [self.textView becomeFirstResponder];
 }
-- (void)dealloc
+- (void)dealloc//通知的取消
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -362,8 +363,11 @@
  */
 - (void)emotionDidSlect:(NSNotification *)notification
 {
+    
     //取出模型
      HXEmotion *emotion = notification.userInfo[@"selectEmotion"] ;
+    //存进沙河中
+    [HXEmotionTool addRecentEmotion:emotion];
   if (emotion.code){
         [self.textView insertText:emotion.code.emoji];
     }else if (emotion.png){
@@ -373,7 +377,6 @@
         [newText appendAttributedString:self.textView.attributedText];
         //加载图片
         HXTextAttachment *attch = [[HXTextAttachment alloc]init];
-        
         attch.emotion = emotion;
         
         //设置图片大小等于字体的行高
@@ -382,13 +385,17 @@
         
         //根据附件创建一个属性文字
         NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:attch];
-        //在光标处添加表情 self.textView.selectedRange.location获得光标所在位置
-        NSUInteger loc = self.textView.selectedRange.location;
-        [newText insertAttributedString:imageStr atIndex:loc];
+        
+//        [newText insertAttributedString:imageStr atIndex:loc];
+        //将图片添加到选中的区域
+        [newText replaceCharactersInRange:self.textView.selectedRange withAttributedString:imageStr];
         
         //设置字体
         [newText addAttribute:NSFontAttributeName value:self.textView.font range:NSMakeRange(0, newText.length)] ;
         self.textView.attributedText = newText;
+        
+        //在光标处添加表情 self.textView.selectedRange.location获得光标所在位置
+        NSUInteger loc = self.textView.selectedRange.location;
         //移动光标到表情的后面
         self.textView.selectedRange = NSMakeRange(loc + 1, 0);
     }
@@ -509,15 +516,11 @@
     self.switchingKeyboard = YES;
     //退出键盘
     [self.textView endEditing:YES];
-    
+    //结束切换键盘
     self.switchingKeyboard = NO;
     //也可以将它放在全局队列 开启新线程 [self.textView becomeFirstResponder];有延迟效果
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
         [self.textView becomeFirstResponder];
-        //结束切换键盘
-        
-        
     });
     
     

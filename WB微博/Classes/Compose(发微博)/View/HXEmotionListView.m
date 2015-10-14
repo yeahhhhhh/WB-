@@ -61,11 +61,15 @@
 - (void)setEmotions:(NSArray *)emotions
 {
     _emotions = emotions;
+  
+    //删除之前的空件
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+
     NSUInteger count = (self.emotions.count + EmotionCount - 1 ) /EmotionCount;
     //设置页数
-    self.pageControl.numberOfPages = count;
+    self.pageControl.numberOfPages = count ;//> 1? count : 0;//如果大于1 就是count 不大于1 就是0
     //创建用来显示每一页表情的容器
-    for (int i = 0; i < self.pageControl.numberOfPages; i++) {
+    for (int i = 0; i < count; i++) {
         HXEmotionPageView *pagesView = [[HXEmotionPageView alloc]init];
         self.pagesView = pagesView;
         //计算这一页的表情范围
@@ -82,8 +86,8 @@
         self.pagesView.emotion = [emotions subarrayWithRange:range];
         [self.scrollView addSubview:pagesView];
     }
-    
-    
+    //从新排列
+    [self setNeedsLayout];
 }
 -(void)layoutSubviews
 {

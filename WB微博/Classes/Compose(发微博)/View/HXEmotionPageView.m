@@ -109,7 +109,8 @@
      *  这个监听在控制器 HXComposeViewController 内监听
      */
     
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"HXEmotionDidSlectNotification" object:nil userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"HXEmotionDidSlectNotification" object:nil userInfo:userInfo];//这条通知被两个地方监听，1、HXComposeViewController 监听它将最近表情来存入沙盒 2、HXEmotionKeyboard监听它新点击了表情，刷新“最近”里面的数据。
+    
 
 }
 /**
@@ -149,6 +150,7 @@
         case UIGestureRecognizerStateChanged:{//手势开始（刚检测到长按）手势改变、移动
             [self emotionButtonWithLocation:location];
             break;
+            
         }
         case UIGestureRecognizerStatePossible:
             NSLog(@"UIGestureRecognizerStatePossible");

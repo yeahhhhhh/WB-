@@ -12,6 +12,8 @@
 		27028B2B1BBABEE000BF107D /* HXEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27028B2A1BBABEE000BF107D /* HXEmotionPopView.xib */; };
 		27028B2E1BBACDC700BF107D /* HXEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27028B2D1BBACDC700BF107D /* HXEmotionButton.m */; };
 		27028B311BBD776900BF107D /* HXTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 27028B301BBD776900BF107D /* HXTextAttachment.m */; };
+		27028B351BBE660E00BF107D /* HXEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 27028B341BBE660E00BF107D /* HXEmotionTool.m */; };
+		2705B3CB1BCC10DD0058080D /* DetailedStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2705B3C81BCC10DD0058080D /* DetailedStatusViewController.m */; settings = {ASSET_TAGS = (); }; };
 		270C74A71B665BFD008FCB15 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 270C74951B665BFD008FCB15 /* AFHTTPRequestOperation.m */; };
 		270C74A81B665BFD008FCB15 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 270C74971B665BFD008FCB15 /* AFHTTPRequestOperationManager.m */; };
 		270C74A91B665BFD008FCB15 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 270C74991B665BFD008FCB15 /* AFHTTPSessionManager.m */; };
@@ -121,6 +123,10 @@
 		27028B2D1BBACDC700BF107D /* HXEmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionButton.m; sourceTree = "<group>"; };
 		27028B2F1BBD776900BF107D /* HXTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXTextAttachment.h; sourceTree = "<group>"; };
 		27028B301BBD776900BF107D /* HXTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXTextAttachment.m; sourceTree = "<group>"; };
+		27028B331BBE660E00BF107D /* HXEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotionTool.h; sourceTree = "<group>"; };
+		27028B341BBE660E00BF107D /* HXEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionTool.m; sourceTree = "<group>"; };
+		2705B3C71BCC10DD0058080D /* DetailedStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedStatusViewController.h; sourceTree = "<group>"; };
+		2705B3C81BCC10DD0058080D /* DetailedStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedStatusViewController.m; sourceTree = "<group>"; };
 		270C74941B665BFD008FCB15 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		270C74951B665BFD008FCB15 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		270C74961B665BFD008FCB15 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -331,6 +337,48 @@
 				27010F041B662C7600983A1E /* OAuthViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		27028B321BBE65E300BF107D /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				27028B331BBE660E00BF107D /* HXEmotionTool.h */,
+				27028B341BBE660E00BF107D /* HXEmotionTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		2705B3C51BCC10DD0058080D /* DetailedStatus(详细微博) */ = {
+			isa = PBXGroup;
+			children = (
+				2705B3C61BCC10DD0058080D /* Controller */,
+				2705B3C91BCC10DD0058080D /* Model */,
+				2705B3CA1BCC10DD0058080D /* View */,
+			);
+			path = "DetailedStatus(详细微博)";
+			sourceTree = "<group>";
+		};
+		2705B3C61BCC10DD0058080D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2705B3C71BCC10DD0058080D /* DetailedStatusViewController.h */,
+				2705B3C81BCC10DD0058080D /* DetailedStatusViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2705B3C91BCC10DD0058080D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2705B3CA1BCC10DD0058080D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		270C74931B665BFD008FCB15 /* AFNetworking */ = {
@@ -651,6 +699,7 @@
 		27DB55401B59718800312D82 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2705B3C51BCC10DD0058080D /* DetailedStatus(详细微博) */,
 				27A045311BB9954F00B3EBE6 /* Main */,
 				27F830391BAFE64D00D473CA /* Compose(发微博) */,
 				27BF0AD91B7E19D700980C4E /* Home */,
@@ -721,6 +770,7 @@
 		27F830391BAFE64D00D473CA /* Compose(发微博) */ = {
 			isa = PBXGroup;
 			children = (
+				27028B321BBE65E300BF107D /* Tool */,
 				2750594B1BB3013F004D9037 /* View */,
 				2750594C1BB3015D004D9037 /* Model */,
 				2750594A1BB30131004D9037 /* Controller */,
@@ -777,6 +827,7 @@
 				TargetAttributes = {
 					27DB55161B59714600312D82 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = YS47LVM3N2;
 					};
 					27DB552F1B59714600312D82 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -840,6 +891,7 @@
 				275059551BB3BF8F004D9037 /* HXComposePhotpView.m in Sources */,
 				27A64DFC1B7C4C1B000E5920 /* MBProgressHUD+MJ.m in Sources */,
 				2775DCB41BABA35E00C6B6DF /* HXStatusPhotoView.m in Sources */,
+				2705B3CB1BCC10DD0058080D /* DetailedStatusViewController.m in Sources */,
 				27A919BC1B958DCF00D047EE /* NSObject+MJProperty.m in Sources */,
 				27EFED801B7F7784008DB7ED /* UIImageView+WebCache.m in Sources */,
 				27A64E021B7C8041000E5920 /* AccountTool.m in Sources */,
@@ -880,6 +932,7 @@
 				27E1DC1A1B5BA39A004387D0 /* BastNavigationViewController.m in Sources */,
 				27DB55511B59729C00312D82 /* ProfileTableViewController.m in Sources */,
 				27028B2E1BBACDC700BF107D /* HXEmotionButton.m in Sources */,
+				27028B351BBE660E00BF107D /* HXEmotionTool.m in Sources */,
 				27EFED811B7F7784008DB7ED /* UIView+WebCacheOperation.m in Sources */,
 				27A919B91B958DCF00D047EE /* NSObject+MJClass.m in Sources */,
 				27A919B81B958DCF00D047EE /* MJPropertyType.m in Sources */,
@@ -1030,6 +1083,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "WB微博/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1042,6 +1096,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "WB微博/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

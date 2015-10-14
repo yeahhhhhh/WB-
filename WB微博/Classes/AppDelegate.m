@@ -57,6 +57,7 @@
     }
     else
     {
+        NSLog(@"111");
         OAuthViewController *tabbarVC = [[OAuthViewController alloc]init];
         self.window.rootViewController = tabbarVC;
     }

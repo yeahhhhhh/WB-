@@ -13,6 +13,9 @@
  */
 
 @interface AccountTool : NSObject
+/**
+ * 存
+ */
 + (void )saveAccount:(Account *)account;
 + (Account *)account;
 @end

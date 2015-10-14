@@ -22,6 +22,8 @@
 #import "LodeMoreFooter(下拉加载).h"
 #import "HXStatusCell.h"
 #import "statusFrame.h"
+#import "DetailedStatusViewController.h"
+#import "BastNavigationViewController.h"
 @interface HomeTableViewController ()<HXDropdownMenuDelegate>
 @property (nonatomic, strong) NSMutableArray* statusFrames;//(微博模型) 里面存放的statusFrame(微博模型) 每一个statusFrame(微博模型)代表一个微博
 @end
@@ -485,7 +487,9 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"sdfaskdlfsadkf;");
+    DetailedStatusViewController * compose = [[DetailedStatusViewController alloc]init];
+    BastNavigationViewController *nav = [[BastNavigationViewController alloc]initWithRootViewController:compose];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

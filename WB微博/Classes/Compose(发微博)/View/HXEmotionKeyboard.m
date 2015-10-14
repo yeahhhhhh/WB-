@@ -11,6 +11,7 @@
 #import "HXEmotionTabBar.h"
 #import "HXEmotion.h"//添加模型类
 #import "MJExtension.h"//转模型类
+#import "HXEmotionTool.h"//取出最近使用表情
 @interface HXEmotionKeyboard()<HXEmotionTabBarDelegate>
 /** 将现实表情内容的空件添加到 contentView*/
 @property (nonatomic, weak) UIView *contentView;
@@ -30,6 +31,8 @@
     if (!_contentlistView)
     {
         self.contentlistView = [[HXEmotionListView alloc]init];
+
+      
     }
     return _contentlistView;
 }
@@ -74,9 +77,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        // 表情内容
+        // 表情内容®
         UIView *contentView = [[UIView alloc]init];
         self.contentView = contentView;
+        NSLog(@"表情内容");
         
         // TabBar
         HXEmotionTabBar *tabBar = [[HXEmotionTabBar alloc]init];
@@ -85,8 +89,19 @@
         
         [self addSubview:contentView];
         [self addSubview:tabBar];
+        // 监听选择表情通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelect) name:@"HXEmotionDidSlectNotification"  object:nil];
     }
     return self;
+}
+- (void)emotionDidSelect
+{
+    //加载沙河中的数据
+    self.contentlistView.emotions = [HXEmotionTool recentEmotion];
+}
+- (void)dealloc//通知的取消
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)layoutSubviews
@@ -116,9 +131,7 @@
             [self.contentView addSubview:self.contentlistView];
             break;
         }
-            
         case HXEmotionTabBarButtonTypeDefault:{ // 默认
-            
             [self.contentView addSubview:self.defaultlistView];
             break;
         }
@@ -126,7 +139,6 @@
             [self.contentView addSubview:self.emojilistView];
             break;
         }
-            
         case HXEmotionTabBarButtonTypeLxh: {// Lxh
             [self.contentView addSubview:self.lxhlistView];
              break;
@@ -134,6 +146,8 @@
     }
     UIView *child = [self.contentView.subviews firstObject];
     child.frame = self.contentView.bounds;
+    // 设置frame
+    [self setNeedsLayout];
 }
 
 @end

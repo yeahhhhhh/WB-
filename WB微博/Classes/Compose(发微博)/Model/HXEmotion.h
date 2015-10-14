@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HXEmotion : NSObject
+@interface HXEmotion : NSObject 
 /** 表情的文字描述*/
 @property (nonatomic, copy) NSString *chs;
 
