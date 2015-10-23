@@ -48,6 +48,11 @@
     }
     return _emotionKeyboard;
 }
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    NSLog(@" %s view即将卸载",__FUNCTION__);
+    // Dispose of any resources that can be recreated.
+}
 #pragma mark - 系统方法
 - (void)viewDidLoad
 {
@@ -136,7 +141,7 @@
     params[@"access_token"] = account.access_token;
     params[@"uid"] = account.uid;
     // 3.发送请求
-    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject)
+    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params  success:^(AFHTTPRequestOperation *operation, NSDictionary * responseObject)
      {
          //NSLog(@"请求成功-%@", responseObject);
          //获取名字

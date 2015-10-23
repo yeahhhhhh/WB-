@@ -19,13 +19,17 @@
 #import "userModle.h"
 #import "statusModle(微博模型).h"
 //#import "MJExtension.h"
-#import "LodeMoreFooter(下拉加载).h"
+//#import "LodeMoreFooter(下拉加载).h"//使用了MJRefresh框架 舍去自定义的下拉加载
 #import "HXStatusCell.h"
 #import "statusFrame.h"
-#import "DetailedStatusViewController.h"
 #import "BastNavigationViewController.h"
+#import "MJRefresh.h"
+#import "DetailedTableViewController.h"
+#import "DetailedTableViewCell.h"
 @interface HomeTableViewController ()<HXDropdownMenuDelegate>
+@property (nonatomic, strong) DetailedTableViewController * compose;
 @property (nonatomic, strong) NSMutableArray* statusFrames;//(微博模型) 里面存放的statusFrame(微博模型) 每一个statusFrame(微博模型)代表一个微博
+@property (nonatomic, strong) NSMutableArray* statusArray;//单纯的只是微博数据
 @end
 @implementation HomeTableViewController
 - (void)viewDidLoad {
@@ -50,30 +54,44 @@
     
     //集成上拉刷新控件
     [self setupRefresh];
+    
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+     NSLog(@" %s view即将卸载",__FUNCTION__);
+    // Dispose of any resources that can be recreated.
 }
 /**
  * 集成刷新控件 下拉
  */
 - (void)setDownRefresh
 {
-    UIRefreshControl *control = [[UIRefreshControl alloc]init];
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(Refresh)];
+
+    // 设置header
+    self.tableView.header = header;
+//    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(Refresh)];
     
-    [control addTarget:self action:@selector(Refresh:) forControlEvents:UIControlEventValueChanged];
-    control.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新......"];
-    [self.tableView addSubview:control] ;
-    //进入刷新状态 但不会刷新数据
-    [control beginRefreshing];
-    //调用方法刷新数据
-    [self Refresh:control];
+//    UIRefreshControl *control = [[UIRefreshControl alloc]init];
+//    
+//    [control addTarget:self action:@selector(Refresh:) forControlEvents:UIControlEventValueChanged];
+//    control.attributedTitle = [[NSAttributedString alloc]initWithString:@"刷新......"];
+//    [self.tableView addSubview:control] ;
+//    //进入刷新状态 但不会刷新数据
+//    [control beginRefreshing];
+//    //调用方法刷新数据
+//    [self Refresh:control];
 }
 /**
  * 集成刷新控件 上拉
  */
 - (void)setupRefresh
 {
-    LodeMoreFooter______ *footer = [LodeMoreFooter______ footer];
-    footer.hidden = YES;
-    self.tableView.tableFooterView = footer;
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+//    qq
+//    LodeMoreFooter______ *footer = [LodeMoreFooter______ footer];
+//    footer.hidden = YES;
+//    self.tableView.tableFooterView = footer;
 }
 /**
  * 获得微博未读数
@@ -111,7 +129,7 @@
 /**
  * UIRefreshControl 进入刷新状态
  */
-- (void)Refresh:(UIRefreshControl*)control
+- (void)Refresh
 {
     // 1.请求管理者
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
@@ -156,9 +174,8 @@
          
          [self.statusFrames insertObjects:newFrames atIndexes:set];//插到最前面
          [self.tableView reloadData];//刷新表格
-         [control endRefreshing];
-         //NSLog(@"请求成功-%@", responseObject);
-         
+         [self.tableView.header endRefreshing];//结束刷新
+//         [control endRefreshing];
          //显示微博刷新数量
          [self showNewStatusCount:array.count];
          self.tabBarItem.badgeValue = nil;
@@ -170,8 +187,8 @@
      {
          NSLog(@"进入刷新状态");
          NSLog(@"请求失败-%@", error);
-         
-         [control endRefreshing];
+         [self.tableView.header endRefreshing];//结束刷新
+//         [control endRefreshing];
      }];
     
 }
@@ -192,6 +209,14 @@
         self.statusFrames = [[NSMutableArray alloc]init];
     }
     return _statusFrames;
+}
+- (NSMutableArray *)statusArray
+{
+    if (!_statusArray)
+    {
+        self.statusArray = [[NSMutableArray alloc]init];
+    }
+    return _statusArray;
 }
 /**
  *  获取用户信息
@@ -332,6 +357,7 @@
          
          NSArray *newFreams = [self stausFramesWithStatuses:array];
          [self.statusFrames addObjectsFromArray:newFreams];
+         [self.statusArray addObjectsFromArray:array];
          [self.tableView reloadData];//刷新表格
          //NSLog(@"请求成功-%@", _statuses);
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
@@ -413,6 +439,7 @@
         
         // 将更多的微博数据，添加到总数组的最后面
         [self.statusFrames addObjectsFromArray:newFrames];
+        [self.statusArray addObjectsFromArray:newStatuses];
         
         // 刷新表格
         [self.tableView reloadData];
@@ -455,7 +482,7 @@
     //获得cell
     HXStatusCell *cell = [HXStatusCell cellwithTableView:tableView];
     cell.statusFrame = self.statusFrames[indexPath.row];
-
+    
          
     return cell;
 //    statusModle______ *status = self.statuses[indexPath.row];
@@ -482,14 +509,23 @@
 //    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:placeholder];
     
 }
+//-(DetailedTableViewController *)compose
+//{
+//    if (!_compose)
+//    {
+//        self.compose = [[DetailedTableViewController alloc]init];
+//    }
+//    return _compose;
+//}
 /**
  *  选中cell行
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DetailedStatusViewController * compose = [[DetailedStatusViewController alloc]init];
-    BastNavigationViewController *nav = [[BastNavigationViewController alloc]initWithRootViewController:compose];
-    [self presentViewController:nav animated:YES completion:nil];
+    DetailedTableViewController *compose = [[DetailedTableViewController alloc]init];
+    compose.statusModle = self.statusArray[indexPath.row];
+    [self.navigationController pushViewController:compose animated:YES];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -497,15 +533,6 @@
     statusFrame *frame = self.statusFrames[indexPath.row];
     return frame.cellhightF;
 }
-
-
-
-
-
-
-
-
-
 
 
 

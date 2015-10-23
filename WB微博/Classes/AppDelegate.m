@@ -18,9 +18,9 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
     //程序图标处消息提醒
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
@@ -133,10 +133,10 @@
 }
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
+    NSLog(@"%s",__func__);
     SDWebImageManager *mgr = [SDWebImageManager sharedManager];
     // 1.取消下载
     [mgr cancelAll];
-    
     // 2.清除内存中的所有图片
     [mgr.imageCache clearMemory];
 }

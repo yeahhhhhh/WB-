@@ -30,7 +30,7 @@
     DiscoverTableViewController *discover = [[DiscoverTableViewController alloc]init];
     [self addchildVC:discover title:@"发现" image:@"tabbar_discover" selectImage:@"tabbar_discover_selected"];
     
-    ProfileTableViewController *profile= [[ProfileTableViewController alloc]init];
+    ProfileViewController *profile= [[ProfileViewController alloc]init];
     [self addchildVC:profile title:@"我" image:@"tabbar_profile" selectImage:@"tabbar_profile_selected"];
 
     /*

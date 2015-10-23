@@ -10,7 +10,8 @@
 #import "HomeTableViewController.h"
 #import "MessageCenterTableViewController.h"
 #import "DiscoverTableViewController.h"
-#import "ProfileTableViewController.h"
+//#import "ProfileTableViewController.h"//
+#import "ProfileViewController.h"
 @interface WBTabBarViewController : UITabBarController
 
 @end

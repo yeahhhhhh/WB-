@@ -10,7 +10,8 @@
 #import "HXDropdownMenu.h"
 #import "UIView+Extension.h"
 #import "HomeMenuController.h"
-@interface ProfileTableViewController ()
+#import "OTCover.h"
+@interface ProfileTableViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 @property (nonatomic ,strong)UIButton *c;//---------
 @end
 
@@ -18,6 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    OTCover *test = [[OTCover alloc] initWithTableViewWithHeaderImage:[UIImage imageNamed:@"image.png"] withOTCoverHeight:200 withTableViewStyle:UITableViewStylePlain];
+    test.tableView.delegate = self;
+    test.tableView.dataSource = self;
+    [self.view addSubview:test];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:(0) target:self  action:@selector(titleClick:) ];
     UIButton *c = [[UIButton alloc]init];
     c.height = 20;
@@ -52,27 +59,32 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 10;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    NSString *identifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
     
-    // Configure the cell...
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"Cell %d",indexPath.row + 1];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

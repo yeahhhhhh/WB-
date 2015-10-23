@@ -46,11 +46,16 @@
          UIViewContentModeBottomLeft,
          UIViewContentModeBottomRight,
          */
+        
+        
         self.contentMode = UIViewContentModeScaleAspectFill;
         self.clipsToBounds = YES;//裁减超出边框的部分
+        
+        
     }
     return self;
 }
+
 - (void)setPhoto:(statusPhotoModle *)photo
 {
     _photo = photo;
