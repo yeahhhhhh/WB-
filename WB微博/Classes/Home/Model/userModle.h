@@ -30,9 +30,20 @@ typedef enum {
 
 /**用户头像地址（中图），50×50像素*/
 @property (nonatomic, copy) NSString *profile_image_url;
-
+/**用户头像 高清*/
+@property (nonatomic, copy) NSString *avatar_hd;
 /**字符串型的用户UID*/
 @property (nonatomic, copy) NSString *idstr;
+/*用户头像地址（大图），180×180像素*/
+@property (nonatomic, copy) NSString *avatar_large;
+/*	粉丝数*/
+@property (nonatomic, assign) int followers_count;
+/*	关注数*/
+@property (nonatomic, assign) int friends_count;
+/*	微博数*/
+@property (nonatomic, assign) int statuses_count;
+/*收藏数*/
+@property (nonatomic, assign) int favourites_count;
 
 ///** 会员类型 > 2代表是会员 */
 //@property (nonatomic, assign) int *mbtype;

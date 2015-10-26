@@ -74,7 +74,7 @@
     SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
     browser.sourceImagesContainerView = self;
     browser.imageCount = self.photos.count;
-    browser.currentImageIndex = self.subviews[1].tag;
+    browser.currentImageIndex = tap.view.tag;
     
     
 //    for (int j = 0; j<self.subviews.count; j++)
@@ -118,7 +118,6 @@
     
     UIImage * image = [UIImage imageNamed:p.thumbnail_pic];
     return image;
-    NSLog(@"%@",image);
 }
 
 
@@ -126,15 +125,11 @@
 int i = 0;
 - (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
 {
-    NSLog(@"index%i",index);
+    NSLog(@"index%li",(long)index);
         statusPhotoModle *p = [[statusPhotoModle alloc]init];
-        for (statusPhotoModle *photo in self.photos) {
-            
-            if (i == 1) {
-                p.thumbnail_pic = photo.thumbnail_pic;
-                continue;
-            }
-            i++;  
+        for (statusPhotoModle *photo in self.photos)
+        {
+         p.thumbnail_pic = photo.thumbnail_pic;
         }
     NSString *urlString = [NSURL URLWithString:p.thumbnail_pic].absoluteString;
     urlString = [urlString stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];

@@ -45,7 +45,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(NSString *)segmentTitle
 {
-    return @"collectionView";
+    return @"相册";
 }
 
 -(UIScrollView *)streachScrollView
@@ -56,7 +56,7 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 10;
+    return 1;
 }
 
 

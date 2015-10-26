@@ -10,7 +10,7 @@
 #import "UIView+Extension.h"
 #import "SearchBar.h"
 #import "UIImageView+WebCache.h"
-@interface DiscoverTableViewController () <UITableViewDataSource>
+@interface DiscoverTableViewController () <UITableViewDataSource,UISearchBarDelegate>
 
 @end
 
@@ -19,11 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    SearchBar *searchBar = [SearchBar searchBar];//添加搜索栏 #import"SearchBar.h"
+//    SearchBar *searchBar = [SearchBar searchBar];//添加搜索栏 #import"SearchBar.h"
+    UISearchBar *searchBar = [[UISearchBar alloc]init];
+    searchBar.placeholder = @"dsfsadfsadadsf";
+    searchBar.delegate = self;
     searchBar.height = 30;
     searchBar.width = 300;
     self.navigationItem.titleView = searchBar;
-  
     self.tableView.tableFooterView=[[UIView alloc]init];//删除多余空cell关键语句
     
 }
@@ -31,13 +33,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 #pragma mark - Table view data source
 
 //设置有几个分组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
 }
+
 //设置各个分组内的cell数量
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
@@ -52,6 +54,7 @@
 }
 //设置cell内的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
     if (indexPath.section == 2) {
@@ -79,6 +82,13 @@
         return  @"Header分组3";
     }
     
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2) {
+        [[SDImageCache sharedImageCache ] clearDisk];
+        [self.tableView reloadData];
+    }
 }
 /*
 // Override to support conditional editing of the table view.

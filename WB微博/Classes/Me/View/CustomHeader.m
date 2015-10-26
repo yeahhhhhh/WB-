@@ -7,12 +7,20 @@
 //
 
 #import "CustomHeader.h"
+#import "AccountTool.h"
+#import "AFNetworking.h"
+#import "userModle.h"
+#import "MJExtension.h"
+@interface CustomHeader()
 
+@end
 @implementation CustomHeader
 
--(void)awakeFromNib
-{
-
-}
-
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+ {
+ if (self = [super initWithCoder:aDecoder])
+ {
+ }
+ return self;
+ }
 @end

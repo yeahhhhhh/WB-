@@ -3,42 +3,107 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomHeader">
-            <rect key="frame" x="0.0" y="0.0" width="341" height="260"/>
+            <rect key="frame" x="0.0" y="0.0" width="341" height="236"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jiker" translatesAutoresizingMaskIntoConstraints="NO" id="mQL-XD-arf">
-                    <rect key="frame" x="0.0" y="0.0" width="341" height="260"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mQL-XD-arf">
+                    <rect key="frame" x="0.0" y="0.0" width="341" height="236"/>
                     <animations/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="64" placeholderIntrinsicHeight="73" image="6881916.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ibx-4z-WEV">
-                    <rect key="frame" x="138" y="147" width="64" height="73"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3d-a3-Wpj">
+                    <rect key="frame" x="125" y="180" width="90" height="40"/>
                     <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="OB6-4D-nS0"/>
+                        <constraint firstAttribute="width" constant="90" id="vUF-nU-lzs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isI-Eu-6Ou">
+                    <rect key="frame" x="243" y="180" width="90" height="40"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="BCq-3v-jsq"/>
+                        <constraint firstAttribute="width" constant="90" id="nmS-d8-adN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Qm-Fy-1LR">
+                    <rect key="frame" x="133" y="80" width="75" height="75"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="BHz-sM-wpH"/>
+                        <constraint firstAttribute="height" constant="75" id="U0V-Vg-w4J"/>
+                    </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7L-YG-2Cg">
+                    <rect key="frame" x="8" y="180" width="90" height="40"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="3La-qf-Vgi"/>
+                        <constraint firstAttribute="width" constant="90" id="xzC-0v-mwc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="mQL-XD-arf" firstAttribute="bottom" secondItem="ibx-4z-WEV" secondAttribute="bottom" constant="40" id="1Ov-Xs-bmT"/>
+                <constraint firstItem="h3d-a3-Wpj" firstAttribute="baseline" secondItem="isI-Eu-6Ou" secondAttribute="firstBaseline" id="0bp-fR-zgm"/>
+                <constraint firstItem="h3d-a3-Wpj" firstAttribute="baseline" secondItem="y7L-YG-2Cg" secondAttribute="firstBaseline" id="1aP-Fh-ymd"/>
+                <constraint firstItem="h3d-a3-Wpj" firstAttribute="centerX" secondItem="6Qm-Fy-1LR" secondAttribute="centerX" id="2xB-yh-IPT"/>
+                <constraint firstAttribute="trailing" secondItem="mQL-XD-arf" secondAttribute="trailing" id="39u-N8-J5C"/>
+                <constraint firstItem="h3d-a3-Wpj" firstAttribute="top" secondItem="isI-Eu-6Ou" secondAttribute="top" id="58c-xb-mQT"/>
+                <constraint firstItem="y7L-YG-2Cg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="9CI-fE-XoJ"/>
+                <constraint firstItem="isI-Eu-6Ou" firstAttribute="leading" secondItem="h3d-a3-Wpj" secondAttribute="trailing" constant="28" id="AXv-UR-oiB"/>
+                <constraint firstItem="6Qm-Fy-1LR" firstAttribute="centerY" secondItem="mQL-XD-arf" secondAttribute="centerY" id="H7l-aT-Ipr"/>
+                <constraint firstItem="mQL-XD-arf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="MzO-M1-UEE"/>
                 <constraint firstItem="mQL-XD-arf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NCq-cf-6CC"/>
-                <constraint firstItem="ibx-4z-WEV" firstAttribute="centerX" secondItem="mQL-XD-arf" secondAttribute="centerX" constant="-0.5" id="Rve-07-2Rj"/>
+                <constraint firstItem="h3d-a3-Wpj" firstAttribute="baseline" secondItem="isI-Eu-6Ou" secondAttribute="baseline" id="R1d-wg-iEh"/>
                 <constraint firstAttribute="bottom" secondItem="mQL-XD-arf" secondAttribute="bottom" id="Uh5-bg-WPJ"/>
+                <constraint firstAttribute="bottom" secondItem="h3d-a3-Wpj" secondAttribute="bottom" constant="16" id="WnH-3P-El3"/>
+                <constraint firstAttribute="bottom" secondItem="y7L-YG-2Cg" secondAttribute="bottom" constant="16" id="YSw-zp-OoW"/>
                 <constraint firstItem="mQL-XD-arf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZjB-Pw-ERs"/>
+                <constraint firstAttribute="bottom" secondItem="isI-Eu-6Ou" secondAttribute="bottom" constant="16" id="aO9-ec-rqw"/>
+                <constraint firstItem="6Qm-Fy-1LR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fOY-qV-i9t"/>
                 <constraint firstAttribute="trailing" secondItem="mQL-XD-arf" secondAttribute="trailing" id="mPI-4g-Lbn"/>
+                <constraint firstAttribute="trailing" secondItem="isI-Eu-6Ou" secondAttribute="trailing" constant="8" id="nW4-ij-Mfc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="ZjB-Pw-ERs"/>
+                    <exclude reference="mPI-4g-Lbn"/>
+                    <exclude reference="AXv-UR-oiB"/>
+                </mask>
+            </variation>
             <connections>
+                <outlet property="but1" destination="y7L-YG-2Cg" id="mHt-vL-z3B"/>
+                <outlet property="but2" destination="h3d-a3-Wpj" id="s4J-XZ-XVx"/>
+                <outlet property="but3" destination="isI-Eu-6Ou" id="mkP-hi-S68"/>
+                <outlet property="iconImage" destination="6Qm-Fy-1LR" id="UHp-Z7-Pyo"/>
                 <outlet property="imageView" destination="mQL-XD-arf" id="BQx-VX-2pd"/>
             </connections>
-            <point key="canvasLocation" x="468.5" y="394"/>
+            <point key="canvasLocation" x="551.5" y="391"/>
         </view>
     </objects>
-    <resources>
-        <image name="6881916.jpg" width="320" height="240"/>
-        <image name="Jiker" width="320" height="240"/>
-    </resources>
 </document>

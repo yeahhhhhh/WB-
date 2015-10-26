@@ -10,6 +10,10 @@
 
 @interface CustomHeader : UIView
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIButton *but1;
+@property (strong, nonatomic) IBOutlet UIButton *but2;
+@property (strong, nonatomic) IBOutlet UIButton *but3;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 
 @end

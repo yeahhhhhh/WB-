@@ -41,7 +41,7 @@
     [self setupNav];
     //获取用户信息
     [self setupUserInfo];
-    
+    //加载最新的微博数据
     [self loadNewSttus];
     
     //集成下拉刷新控件
@@ -355,7 +355,7 @@
          NSArray *array = [statusModle______ objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
          //
          
-         NSArray *newFreams = [self stausFramesWithStatuses:array];
+         NSArray *newFreams = [self stausFramesWithStatuses:array];//带有frame的数据
          [self.statusFrames addObjectsFromArray:newFreams];
          [self.statusArray addObjectsFromArray:array];
          [self.tableView reloadData];//刷新表格
@@ -509,14 +509,8 @@
 //    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageurl] placeholderImage:placeholder];
     
 }
-//-(DetailedTableViewController *)compose
-//{
-//    if (!_compose)
-//    {
-//        self.compose = [[DetailedTableViewController alloc]init];
-//    }
-//    return _compose;
-//}
+
+
 /**
  *  选中cell行
  */

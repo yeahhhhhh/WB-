@@ -32,6 +32,7 @@
 		275059581BB68A3D004D9037 /* HXEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 275059571BB68A3D004D9037 /* HXEmotionKeyboard.m */; };
 		2750595B1BB68BBA004D9037 /* HXEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2750595A1BB68BBA004D9037 /* HXEmotionTabBar.m */; };
 		2750595E1BB68CA4004D9037 /* HXEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2750595D1BB68CA4004D9037 /* HXEmotionListView.m */; };
+		27592CAB1BDE6FF400319E27 /* AllStatusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27592CAA1BDE6FF400319E27 /* AllStatusTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2761CC2E1B5D159600124EC7 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC2B1B5D159600124EC7 /* UIBarButtonItem+Extension.m */; };
 		2761CC2F1B5D159600124EC7 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC2D1B5D159600124EC7 /* UIView+Extension.m */; };
 		2761CC321B5D15E500124EC7 /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2761CC311B5D15E500124EC7 /* SearchBar.m */; };
@@ -100,7 +101,10 @@
 		27A919C21B95D88500D047EE /* LodeMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A919C11B95D88500D047EE /* LodeMoreFooter.xib */; };
 		27A919C51B96ED2700D047EE /* HXStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A919C41B96ED2700D047EE /* HXStatusCell.m */; };
 		27A919C81B96F5C700D047EE /* statusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A919C71B96F5C700D047EE /* statusFrame.m */; };
+		27AD6FFF1BDD29300092165A /* MeStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AD6FFE1BDD29300092165A /* MeStatusCell.m */; settings = {ASSET_TAGS = (); }; };
 		27B3A0561B64BFA600FF72E1 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B3A0551B64BFA600FF72E1 /* NewFeatureViewController.m */; };
+		27B8BBF71BDA9A5E0014BA88 /* MeStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B8BBF61BDA9A5E0014BA88 /* MeStatusFrame.m */; settings = {ASSET_TAGS = (); }; };
+		27BDD72C1BDB705000411B0C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BDD72B1BDB705000411B0C /* Accelerate.framework */; };
 		27BF0AD41B7DDCA700980C4E /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF0AD31B7DDCA700980C4E /* Foundation+Log.m */; };
 		27BF0ADF1B7E19D700980C4E /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF0ADC1B7E19D700980C4E /* HomeTableViewController.m */; };
 		27BF0AE51B7E1A6900980C4E /* HXTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF0AE41B7E1A6900980C4E /* HXTitleButton.m */; };
@@ -122,7 +126,6 @@
 		27DB55451B59718800312D82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB55431B59718800312D82 /* main.m */; };
 		27DB554B1B59727E00312D82 /* MessageCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB554A1B59727E00312D82 /* MessageCenterTableViewController.m */; };
 		27DB554E1B59728C00312D82 /* DiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB554D1B59728C00312D82 /* DiscoverTableViewController.m */; };
-		27DB55511B59729C00312D82 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DB55501B59729C00312D82 /* ProfileTableViewController.m */; };
 		27E1DC141B5B8A37004387D0 /* Text1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E1DC131B5B8A37004387D0 /* Text1ViewController.m */; };
 		27E1DC1A1B5BA39A004387D0 /* BastNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E1DC191B5BA39A004387D0 /* BastNavigationViewController.m */; };
 		27EFED721B7F7784008DB7ED /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EFED521B7F7784008DB7ED /* MKAnnotationView+WebCache.m */; };
@@ -144,7 +147,6 @@
 		27F08D771BAEC98300B97A0A /* HXiconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F08D761BAEC98300B97A0A /* HXiconView.m */; };
 		27F830431BB04EA800D473CA /* HXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F830421BB04EA800D473CA /* HXTextView.m */; };
 		27FB4B301B5A20A500C446FF /* WBTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FB4B2F1B5A20A500C446FF /* WBTabBarViewController.m */; };
-		27FD35821BD0FEEB00918178 /* OTCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FD35811BD0FEEB00918178 /* OTCover.m */; settings = {ASSET_TAGS = (); }; };
 		27FD35CE1BD116D500918178 /* DetailedFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FD35CD1BD116D500918178 /* DetailedFrame.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -209,6 +211,8 @@
 		2750595A1BB68BBA004D9037 /* HXEmotionTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionTabBar.m; sourceTree = "<group>"; };
 		2750595C1BB68CA4004D9037 /* HXEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXEmotionListView.h; sourceTree = "<group>"; };
 		2750595D1BB68CA4004D9037 /* HXEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXEmotionListView.m; sourceTree = "<group>"; };
+		27592CA91BDE6FF400319E27 /* AllStatusTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllStatusTableViewController.h; sourceTree = "<group>"; };
+		27592CAA1BDE6FF400319E27 /* AllStatusTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllStatusTableViewController.m; sourceTree = "<group>"; };
 		2761CC2A1B5D159600124EC7 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		2761CC2B1B5D159600124EC7 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		2761CC2C1B5D159600124EC7 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -341,8 +345,13 @@
 		27A919C41B96ED2700D047EE /* HXStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXStatusCell.m; sourceTree = "<group>"; };
 		27A919C61B96F5C700D047EE /* statusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statusFrame.h; sourceTree = "<group>"; };
 		27A919C71B96F5C700D047EE /* statusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = statusFrame.m; sourceTree = "<group>"; };
+		27AD6FFD1BDD29300092165A /* MeStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeStatusCell.h; sourceTree = "<group>"; };
+		27AD6FFE1BDD29300092165A /* MeStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeStatusCell.m; sourceTree = "<group>"; };
 		27B3A0541B64BFA600FF72E1 /* NewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
 		27B3A0551B64BFA600FF72E1 /* NewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
+		27B8BBF51BDA9A5E0014BA88 /* MeStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeStatusFrame.h; sourceTree = "<group>"; };
+		27B8BBF61BDA9A5E0014BA88 /* MeStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeStatusFrame.m; sourceTree = "<group>"; };
+		27BDD72B1BDB705000411B0C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		27BF0AD31B7DDCA700980C4E /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		27BF0ADB1B7E19D700980C4E /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		27BF0ADC1B7E19D700980C4E /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
@@ -384,8 +393,6 @@
 		27DB554A1B59727E00312D82 /* MessageCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenterTableViewController.m; sourceTree = "<group>"; };
 		27DB554C1B59728C00312D82 /* DiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTableViewController.h; sourceTree = "<group>"; };
 		27DB554D1B59728C00312D82 /* DiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewController.m; sourceTree = "<group>"; };
-		27DB554F1B59729C00312D82 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileTableViewController.h; path = ../../ProfileTableViewController.h; sourceTree = "<group>"; };
-		27DB55501B59729C00312D82 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileTableViewController.m; path = ../../ProfileTableViewController.m; sourceTree = "<group>"; };
 		27E1DC121B5B8A37004387D0 /* Text1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Text1ViewController.h; sourceTree = "<group>"; };
 		27E1DC131B5B8A37004387D0 /* Text1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Text1ViewController.m; sourceTree = "<group>"; };
 		27E1DC181B5BA39A004387D0 /* BastNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BastNavigationViewController.h; sourceTree = "<group>"; };
@@ -429,8 +436,6 @@
 		27F830421BB04EA800D473CA /* HXTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXTextView.m; sourceTree = "<group>"; };
 		27FB4B2E1B5A20A500C446FF /* WBTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBarViewController.h; sourceTree = "<group>"; };
 		27FB4B2F1B5A20A500C446FF /* WBTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBarViewController.m; sourceTree = "<group>"; };
-		27FD35801BD0FEEB00918178 /* OTCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCover.h; sourceTree = "<group>"; };
-		27FD35811BD0FEEB00918178 /* OTCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCover.m; sourceTree = "<group>"; };
 		27FD35CC1BD116D500918178 /* DetailedFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedFrame.h; sourceTree = "<group>"; };
 		27FD35CD1BD116D500918178 /* DetailedFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -440,6 +445,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27BDD72C1BDB705000411B0C /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,7 +762,6 @@
 			children = (
 				27CAB7291BD63B2400240FB9 /* SDPhotoBrowser */,
 				27CAB63A1BD60F0200240FB9 /* MJPhotoBrowser */,
-				27FD357F1BD0FEEB00918178 /* OTCover */,
 				2770A82C1BCFF22F0007F00C /* MJRefresh */,
 				27A9199B1B958DCF00D047EE /* MJExtension */,
 				27EFED501B7F7784008DB7ED /* SDWebImage */,
@@ -929,6 +934,7 @@
 		27DB550E1B59714600312D82 = {
 			isa = PBXGroup;
 			children = (
+				27BDD72B1BDB705000411B0C /* Accelerate.framework */,
 				27DB55191B59714600312D82 /* WB微博 */,
 				27DB55331B59714600312D82 /* WB微博Tests */,
 				27DB55181B59714600312D82 /* Products */,
@@ -1063,15 +1069,6 @@
 			path = "Compose(发微博)";
 			sourceTree = "<group>";
 		};
-		27FD357F1BD0FEEB00918178 /* OTCover */ = {
-			isa = PBXGroup;
-			children = (
-				27FD35801BD0FEEB00918178 /* OTCover.h */,
-				27FD35811BD0FEEB00918178 /* OTCover.m */,
-			);
-			path = OTCover;
-			sourceTree = "<group>";
-		};
 		27FD35831BD0FF9200918178 /* Me */ = {
 			isa = PBXGroup;
 			children = (
@@ -1086,8 +1083,6 @@
 		27FD35841BD0FF9200918178 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				27DB554F1B59729C00312D82 /* ProfileTableViewController.h */,
-				27DB55501B59729C00312D82 /* ProfileTableViewController.m */,
 				279D981A1BD3F1BC001C6B70 /* ProfileViewController.h */,
 				279D981B1BD3F1BC001C6B70 /* ProfileViewController.m */,
 			);
@@ -1097,6 +1092,8 @@
 		27FD35851BD0FF9200918178 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				27B8BBF51BDA9A5E0014BA88 /* MeStatusFrame.h */,
+				27B8BBF61BDA9A5E0014BA88 /* MeStatusFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1115,6 +1112,10 @@
 				279D982F1BD3F517001C6B70 /* CustomHeader.xib */,
 				279D981D1BD3F223001C6B70 /* UIImage+ImageEffects.h */,
 				279D981E1BD3F223001C6B70 /* UIImage+ImageEffects.m */,
+				27AD6FFD1BDD29300092165A /* MeStatusCell.h */,
+				27AD6FFE1BDD29300092165A /* MeStatusCell.m */,
+				27592CA91BDE6FF400319E27 /* AllStatusTableViewController.h */,
+				27592CAA1BDE6FF400319E27 /* AllStatusTableViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1261,6 +1262,7 @@
 				2770A8691BCFF22F0007F00C /* UIScrollView+MJExtension.m in Sources */,
 				27028B291BBABEB900BF107D /* HXEmotionPopView.m in Sources */,
 				273E00631B5E4D6E0017D6C7 /* HomeMenuController.m in Sources */,
+				27B8BBF71BDA9A5E0014BA88 /* MeStatusFrame.m in Sources */,
 				27A64DFE1B7C4C1B000E5920 /* MBProgressHUD.m in Sources */,
 				2750595E1BB68CA4004D9037 /* HXEmotionListView.m in Sources */,
 				27CAB64E1BD60F0200240FB9 /* MJPhotoProgressView.m in Sources */,
@@ -1295,7 +1297,6 @@
 				279D98221BD3F26F001C6B70 /* CustomHeader.m in Sources */,
 				27E1DC1A1B5BA39A004387D0 /* BastNavigationViewController.m in Sources */,
 				279D98191BD3F10D001C6B70 /* ARSegmentView.m in Sources */,
-				27DB55511B59729C00312D82 /* ProfileTableViewController.m in Sources */,
 				27028B2E1BBACDC700BF107D /* HXEmotionButton.m in Sources */,
 				27028B351BBE660E00BF107D /* HXEmotionTool.m in Sources */,
 				27EFED811B7F7784008DB7ED /* UIView+WebCacheOperation.m in Sources */,
@@ -1316,6 +1317,7 @@
 				27A919971B952A5200D047EE /* userModle.m in Sources */,
 				27CAB64F1BD60F0200240FB9 /* MJPhotoToolbar.m in Sources */,
 				279D98181BD3F10D001C6B70 /* ARSegmentPageHeader.m in Sources */,
+				27AD6FFF1BDD29300092165A /* MeStatusCell.m in Sources */,
 				27EFED7D1B7F7784008DB7ED /* UIImage+MultiFormat.m in Sources */,
 				2749506C1B60F01500D510FC /* HXTabBar.m in Sources */,
 				27A919B41B958DCF00D047EE /* MJExtensionConst.m in Sources */,
@@ -1330,6 +1332,7 @@
 				27BF0AE51B7E1A6900980C4E /* HXTitleButton.m in Sources */,
 				276200481BB7ECC900662498 /* HXEmotion.m in Sources */,
 				27FD35CE1BD116D500918178 /* DetailedFrame.m in Sources */,
+				27592CAB1BDE6FF400319E27 /* AllStatusTableViewController.m in Sources */,
 				2770A8611BCFF22F0007F00C /* MJRefreshBackGifFooter.m in Sources */,
 				27EFED7E1B7F7784008DB7ED /* UIImage+WebP.m in Sources */,
 				27A919C81B96F5C700D047EE /* statusFrame.m in Sources */,
@@ -1346,7 +1349,6 @@
 				27CAB7321BD63B2400240FB9 /* SDPhotoBrowser.m in Sources */,
 				275059581BB68A3D004D9037 /* HXEmotionKeyboard.m in Sources */,
 				270C74AB1B665BFD008FCB15 /* AFSecurityPolicy.m in Sources */,
-				27FD35821BD0FEEB00918178 /* OTCover.m in Sources */,
 				27DB55441B59718800312D82 /* AppDelegate.m in Sources */,
 				27EFED741B7F7784008DB7ED /* SDImageCache.m in Sources */,
 				279D98171BD3F10D001C6B70 /* ARSegmentPageController.m in Sources */,

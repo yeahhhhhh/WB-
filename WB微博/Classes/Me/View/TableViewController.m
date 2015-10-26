@@ -14,12 +14,10 @@
 
 @implementation TableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-}
-
+    }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -27,7 +25,7 @@
 
 -(NSString *)segmentTitle
 {
-    return @"TableView";
+    return @"全部";
 }
 
 -(UIScrollView *)streachScrollView
@@ -38,17 +36,31 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //获得cell
+//    MeStatusCell *cell = [MeStatusCell cellwithTableView:tableView];
+//    NSLog(@"%@",self.meStatusFrames[indexPath.row]);
+//    cell.meStatusFrame = self.meStatusFrames[indexPath.row];
+//    
+//    return cell;
     
-    cell.textLabel.text = @"tableView";
+    NSString *ID = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID ];
+    if (!cell)
+    {
+        cell= [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle
+                                    reuseIdentifier:ID];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"第%ld行",(long)indexPath.row];
+    
     return cell;
 }
 
